@@ -37,7 +37,16 @@
 \RequirePackage[skip=0.2in, indent=0.5in]{parskip}
 
 % Custom Commands
-\newcommand{\labelandindex}[1]{\label{#1} \index{#1}}
+\RequirePackage{xparse}
+
+\NewDocumentCommand{\labelandindex}{m o}{%
+  \IfValueTF{#2}{%
+    \label{#2} \index{#1}%
+  }{%
+    \label{#1} \index{#1}%
+  }%
+}
+
 \newcommand{\thetitle}[1]{\def\guidetitle{#1}}
 
 
