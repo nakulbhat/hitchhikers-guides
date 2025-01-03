@@ -1,4 +1,4 @@
-\ProvidesPackage{hitchhiker's-guide}[2025/01/03 Custom Package for Personal Book Class]
+\ProvidesPackage{hitchhiker's-guide}[2025/01/03 Independent Numbering for Theorem-like Environments]
 
 % Abstracts
 \newenvironment{abstract}
@@ -19,3 +19,35 @@
     mathescape=true,
     texcl=true
 }
+
+% Load amsmath for advanced numbering
+\RequirePackage{amsmath}
+
+% Define a unified theorem-like style
+\RequirePackage{amsthm}
+
+\newtheoremstyle{customstyle} % Unified style
+{10pt}   % Space above
+{10pt}   % Space below
+{\normalfont} % Body font
+{}        % Indent amount
+{\bfseries} % Theorem head font
+{:}       % Punctuation after theorem head
+{.5em}    % Space after theorem head
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % Custom head spec
+
+% Apply the custom style
+\theoremstyle{customstyle}
+
+% Define environments with independent counters tied to chapters
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{intuition}{Intuition}[chapter]
+\newtheorem{wormhole}{Wormhole}[chapter]
+\newtheorem{fallacy}{Fallacy}[chapter]
+\newtheorem{exampleinner}{Example}[chapter]
+
+

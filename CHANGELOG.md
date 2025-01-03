@@ -14,4 +14,8 @@ Removed - for now removed features.
 Fixed - for any bug fixes.
 Security - in case of vulnerabilities. -->
 
-## [Unreleased]
+## v1.0.0
+Added - Custom Package and Class
+Added - Custom Sectioning and formatting
+Added - Labelling and Indexing
+Added - Overall Document Structure
