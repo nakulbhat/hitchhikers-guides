@@ -9,7 +9,7 @@
 \RequirePackage{csquotes}
 
 % Geometry and Margins
-\RequirePackage[a4paper, inner=0.75in, outer=2in, top=1in, bottom=1in, bindingoffset=0.75in, marginparwidth=1.4in, marginparsep=0.2in]{geometry}
+\RequirePackage[a4paper, inner=0.6in, outer=1.8in, top=1in, bottom=1in, bindingoffset=0.75in, marginparwidth=1.4in, marginparsep=0.2in]{geometry}
 
 % Annotations
 \RequirePackage{marginnote}
