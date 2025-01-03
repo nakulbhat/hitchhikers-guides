@@ -1,0 +1,33 @@
+\chapter{Combinatorics}
+
+\begin{abstract}
+    Combinatorics is a field of mathematics that deals with the counting of discrete objects. Any applications of mathematics that deals with selection or arrangements of objects comes under the purview of combinatorics. \marginnote{Whether you use permutation or combination is irrelevant in this case.}Combinatorics is essential for calculating probability, as it is often necessary to know the total number of possibilities to calculate probability.
+\end{abstract}
+
+\begin{theorem}[The Fundamental Theorem Of Counting]
+    If there are two events that happen  in succession, and there are \mbox{$m$} ways to do the first one; and \mbox{$n$} ways to do the second one, then there are \mbox{$m\times n$} ways of completing the tasks in succession
+\end{theorem}
+
+\begin{example}
+    [Throwing 2 Dice]
+    Suppose we have two dice which are thrown successively, and the readings are noted. there are 6 possibilities in each die, and 36 possibilities in total. Each of those possibilities are represented in the following matrix.
+    \begin{equation*}
+        \begin{pmatrix}
+            (1,1)  & (1,2)  & \dots  & (1,6)  \\
+            (2,1)  & (2,2)  & \dots  & (2,6)  \\
+            \vdots & \vdots & \ddots & \vdots \\
+            (6,1)  & (6,2)  & \dots  & (6,6)
+        \end{pmatrix}
+    \end{equation*}
+\end{example}
+
+\section{Permutation}
+Permutation is the study of arrangement of objects. Formally, it is defined as the act of arranging members of a given set into a sequence or order.
+
+\begin{intuition}
+[Factorials in Combinatorics]
+Factorials are omnipresent in combinatorics. This is because factorials allow us to elegantly represent a particular scenario that occurs often in problems of combinatorics. Suppose you are given the responsibility of arranging 5 people into 5 seats. Logically, you have 5 choices for seat 1, 4 for seat 2 and so on. Thus you have stumbled upon \mbox{$5!$}.
+\begin{equation*}
+    \boxed{5} \times \boxed{4} \times \boxed{3} \times \boxed{2} \times \boxed{1}  = 5! = 120 \text{ ways}
+\end{equation*} 
+\end{intuition}
