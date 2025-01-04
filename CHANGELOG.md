@@ -14,12 +14,7 @@ Removed - for now removed features.
 Fixed - for any bug fixes.
 Security - in case of vulnerabilities. -->
 
-## v1.0.1
-Changed - Margins
-Removed - extra \newgeomety command in abstract_and_grading.tex
-
-## v1.0.0
-Added - Custom Package and Class
-Added - Custom Sectioning and formatting
-Added - Labelling and Indexing
-Added - Overall Document Structure
+## v0.1.0
+Added - Abstract
+Added - Syllabus
+Added - Grading
