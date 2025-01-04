@@ -3,11 +3,23 @@
 
 \thetitle{Probability and Optimization} % Title as it appears in the header.
 
+% Custom Commands for this guide
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
 
-
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+\renewcommand\marginfont{%
+    \normalfont\scriptsize
+}
+\usepackage{qtree}
+\usepackage{cancel}
+\hfuzz=5pt
 
 % \addbibresource{references.bib} %update as necessary
 \begin{document}
+\RaggedRight
 \input{modules/titlepage}
 \input{modules/abstract_and_grading.tex}
 \tableofcontents

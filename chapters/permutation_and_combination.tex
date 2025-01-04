@@ -1,15 +1,14 @@
-\chapter{Combinatorics}
-
+\chapter{Combinatorics}\labelandindex{Combinatorics}
 \begin{abstract}
-    Combinatorics is a field of mathematics that deals with the counting of discrete objects. Any applications of mathematics that deals with selection or arrangements of objects comes under the purview of combinatorics. \marginnote{Whether you use permutation or combination is irrelevant in this case.}Combinatorics is essential for calculating probability, as it is often necessary to know the total number of possibilities to calculate probability.
+    Combinatorics is a very vast field of mathematics whose scope is not universally agreed upon. In its simplest sense, it involves the enumeration (counting) of objects, associated with finite systems of such objects. Combinatorics also deals with the construction and existence of such objects and systems. An important part of combinatorics study is Optimization. It involves finding such objects which satisfy a given optimality criterion (such as "largest" or "smallest"). This chapter discusses a basic introduction to the ideas in Combinatorics.
 \end{abstract}
 
-\begin{theorem}[The Fundamental Theorem Of Counting]
+\section{Basic Counting Principles}
+\begin{theorem}[The Fundamental Theorem Of Counting] \labelandindex{Fundamental Theorem of Counting}
     If there are two events that happen  in succession, and there are \mbox{$m$} ways to do the first one; and \mbox{$n$} ways to do the second one, then there are \mbox{$m\times n$} ways of completing the tasks in succession
 \end{theorem}
 
-\begin{example}
-    [Throwing 2 Dice]
+\begin{example}[Throwing 2 Dice]
     Suppose we have two dice which are thrown successively, and the readings are noted. there are 6 possibilities in each die, and 36 possibilities in total. Each of those possibilities are represented in the following matrix.
     \begin{equation*}
         \begin{pmatrix}
@@ -21,13 +20,139 @@
     \end{equation*}
 \end{example}
 
-\section{Permutation}
-Permutation is the study of arrangement of objects. Formally, it is defined as the act of arranging members of a given set into a sequence or order.
+\begin{fallacy}[Independence of Events]
+    It is important to note that the events in consideration are truly independent of one another. Suppose we are considering buying a study table. It can be of two types, standing table, or sitting table and be finished in three colours, brown, black and white. A \emph{Tree Diagram} for this circumstance can be drawn up as shown below.
 
-\begin{intuition}
-[Factorials in Combinatorics]
-Factorials are omnipresent in combinatorics. This is because factorials allow us to elegantly represent a particular scenario that occurs often in problems of combinatorics. Suppose you are given the responsibility of arranging 5 people into 5 seats. Logically, you have 5 choices for seat 1, 4 for seat 2 and so on. Thus you have stumbled upon \mbox{$5!$}.
-\begin{equation*}
-    \boxed{5} \times \boxed{4} \times \boxed{3} \times \boxed{2} \times \boxed{1}  = 5! = 120 \text{ ways}
-\end{equation*} 
+    \Tree [.Table [.Standing Brown Black White ] [.Sitting Brown Black White ] ]
+
+    This example follows theorem \ref{Fundamental Theorem of Counting}. But consider a case where these events were not independent. Say, we could not get a Brown Standing Table. Now the tree becomes
+
+    \Tree [.Table [.Standing \xcancel{Brown} Black White ] [.Sitting Brown Black White ] ]
+
+    Which leaves us with 5 choices, less than the 6 possible choices.
+\end{fallacy}
+
+\begin{intuition}[Factorials in Combinatorics]
+    Factorials are omnipresent in combinatorics. This is because factorials allow us to elegantly represent a particular scenario that occurs often in problems of combinatorics. Suppose you are given the responsibility of arranging 5 people into 5 seats. Logically, you have 5 choices for seat 1, 4 for seat 2 and so on. Thus you have stumbled upon \mbox{$5!$}.
+    \begin{equation*}
+        \boxed{5} \times \boxed{4} \times \boxed{3} \times \boxed{2} \times \boxed{1}  = 5! = 120 \text{ ways}
+    \end{equation*}
 \end{intuition}
+
+\section{Permutation} \labelandindex{Permutations}
+The permutation of a set can be defined as an arrangement of the members of the set; or the act of creating or changing such an arrangement. Common examples are Anagrams, which consist of different ways of arranging letters in a word.
+
+\begin{wormhole}[Permutation in Genetics]
+    Suppose we are considering the inheritance of two genes. Gene A and Gene B, each having two alleles each. Now, following Mendel's laws of inheritance, each gene is inherited independently, thus satisfying theorem \ref{Fundamental Theorem of Counting}, allowing us to conclude that there are 4 possible genotypes.
+    \begin{equation*}
+        \underbrace{(A_1,\ A_2)}_\text{Gene A}\times\underbrace{(B_1,\ B_2)}_\text{Gene B} \begin{cases}
+            (A_1,\ B_1) \\
+            (A_1,\ B_2) \\
+            (A_2,\ B_1) \\
+            (A_2,\ B_2) \\
+        \end{cases}
+    \end{equation*}
+\end{wormhole}
+
+Permutations of a set of n objects will always be \mbox{$n!$}. However, permutations can also refer to the \textbf{partial permutation} of a set, in which case it is equal to \mbox{$\Perm{n}{k}$} where it is called the r-permutation of n. \labelandindex{Parital Permutation}
+
+\begin{equation}
+    \Perm{n}{r} = \frac{n!}{(n-k)!}
+\end{equation}
+
+\subsection{Basic Permutations}
+Table \ref{tab:basic_Permutations} shows some basic permutation formulae that are applicable to most cases. Care must be taken however, when judging which formula to use. Some permutations which do not fall under the purview of this table must be solved using advanced methods outlined later in this chapter.
+
+\begin{table}[h]
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \begin{tabularx}{\textwidth}{Xc}
+        \toprule
+        \textbf{Description}                                                                                                                                                                                                            & \textbf{Formula}                              \\
+        \midrule
+        No. of arrangements of \mbox{$k$} distinct objects out of \mbox{$n$} total objects without repetition                                                                                                                           & \mbox{$\Perm{n}{r}$}                          \\
+        No. of arrangements of \mbox{$k$} distinct objects out of \mbox{$n$} total objects \textbf{with repetition}                                                                                                                     & \mbox{$n^k$}                                  \\
+        \marginnote{Assuming \mbox{$k$} sets each having a certain number of repetitions with \mbox{$n_k$} items}No. of arrangements of \mbox{$k$} distinct objects out of \mbox{$n$} total objects \textbf{with restricted repetition} & \mbox{$\frac{{n!}}{n_1!\;n_2!\;\dots\;n_k!}$} \\
+        Circular permutation where direction is important                                                                                                                                                                               & \mbox{$(n-1)!$}                               \\
+        Circular permutation where direction is \textbf{not important}                                                                                                                                                                  & \mbox{$\frac{(n-1)!}{2}$}                     \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Basic Permutation Formulae}
+    \label{tab:basic_Permutations}
+\end{table}
+
+\section{Combination}
+A combination is defined as the selection of items from a set, such that the order of the selected items does not matter. Formally, a k-combination is a subset of S having k distinct elements. Two combinations are equal if and only if they have the same members.
+
+A k-combination is frequently denoted as \mbox{$\Comb{n}{r}$} which can be derived as follows.
+
+A k-combination, by virtue of having k elements has \mbox{$k!$} permutations. This means that, each k-combination is counted \mbox{$k!$} times in \mbox{$\Perm{n}{k}$}.
+\begin{align}
+    \Comb{n}{k}\times k! & = \Perm{n}{k} \nonumber            \\
+    \Comb{n}{k}          & = \frac{\Perm{n}{k}}{k!} \nonumber \\
+    \Comb{n}{k}          & = \frac{n!}{k!\;(n-k)!}
+\end{align}
+
+Alternatively, \mbox{$\Comb{n}{k}$} can be considered in terms of binomial coefficient \mbox{$\begin{pmatrix} n \\ k\end{pmatrix}$}. In that case, by using the binomial expansion formula, we can derive \mbox{$\Comb{n}{k}$}. The formula for a binomial coefficient is
+\begin{align}
+    \begin{pmatrix} n \\ k\end{pmatrix} & = \frac{n\times (n-1) \times (n-2) \dots \times (n-k+1)}{k\times (k-1) \times (k-2) \dots \times 1} \nonumber
+\end{align}
+We can multiply the fraction with \mbox{$(n-k)!$}, which allows us to write
+\begin{align}
+    \begin{pmatrix}
+        n \\
+        k
+    \end{pmatrix}
+     & = \frac{\overbrace{n\times (n-1) \times (n-2) \dots \times (n-k+1)\times \overbrace{(n-k) \times (n-k-1) \dots \times 1}^{(n-k)!}}^{n!}}{\underbrace{k\times (k-1) \times (k-2) \dots \times 1}_{k!}\times \underbrace{(n-k) \times (n-k-1) \dots \times 1}_{(n-k)!}} \nonumber
+\end{align}
+and we can simplify to
+\begin{align}
+    \begin{pmatrix} n \\ k\end{pmatrix} = \frac{n!}{k!\times (n-k)!} = \Comb{n}{k}
+\end{align}
+
+\subsection{Symmetry of Combinations}
+Combinations inherently have a symmetric property. Suppose you have a set of five objects, out of which two need to be selected. This is equivalent to the case where you select three objects to leave behind. Formulaically, we can derive the relation as
+\begin{align}
+    \begin{pmatrix}
+        n \\k
+    \end{pmatrix} & = \frac{n!}{k!\times (n-k)!} \nonumber
+\end{align}
+now substitute the case where \mbox{$k=n-k \Rightarrow 2k = n \Rightarrow k = \frac{n}{2}$}
+\begin{align}
+    \begin{pmatrix}
+        n \\k
+    \end{pmatrix}                                                                                                                                  & = \frac{n!}{(n-k)!\times (n-(n-k))!} \nonumber              \\
+    \begin{pmatrix} \marginnote{This happens because there are factors which are common to both the denominator and numerator and get canceled out.}
+        n \\k
+    \end{pmatrix} & = \frac{n!}{(n-k)!\times (\cancel{n-n+}k)!} \nonumber                                                              \\
+    \begin{pmatrix}
+        n \\k
+    \end{pmatrix}                                                                                                                                  & = \frac{n!}{(n-k)!\times k!} =     \begin{pmatrix}
+                                                                                                                                                                                            n \\n-k
+                                                                                                                                                                                        \end{pmatrix}\nonumber \
+\end{align}
+
+\subsection{Basic Combinations}
+Table \ref{tab:basic_combinations} gives a list of basic combination formulae. The number of combination formulae is significantly less than permutation formulae as order is irrelevant for this case.
+\begin{table}[h]
+    \renewcommand{\arraystretch}{1.5}
+    \centering
+    \begin{tabularx}{\textwidth}{Xc}
+        \toprule
+        \textbf{Description} & \textbf{Formula}\\
+        \midrule
+        Combination without repetition & \mbox{$\Comb{n}{k}$}\\
+        Combination \textbf{with repetition} & \mbox{$\Comb{n+k-1}{k}$}\\
+        \bottomrule
+    \end{tabularx}
+    \caption{Basic Combination Formulae}
+    \label{tab:basic_combinations}
+\end{table}
+
+\section{Distributions}
+A distribution is a problem where \mbox{$k$} objects need to be allocated into \mbox{$n$} boxes. While there is no specific formula for distributions, a solution depends on the following factors.
+\begin{enumerate}
+    \item Distinguisability of objects
+    \item Distinguisability of boxes
+    \item Significance of order.
+\end{enumerate}

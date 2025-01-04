@@ -58,3 +58,6 @@
 
 % References
 \RequirePackage[backend=biber]{biblatex}
+
+% Tables
+\RequirePackage{tabularx}
