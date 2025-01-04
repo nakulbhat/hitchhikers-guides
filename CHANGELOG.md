@@ -14,6 +14,10 @@ Removed - for now removed features.
 Fixed - for any bug fixes.
 Security - in case of vulnerabilities. -->
 
+## v1.0.3
+Added - tabularx package
+Changed - Moved version number to main
+
 ## v1.0.2
 Fixed - Bug in example environment definition.
 Added - gitignore
