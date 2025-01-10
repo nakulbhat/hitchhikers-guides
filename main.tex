@@ -1,25 +1,15 @@
 \documentclass{hitchhiker's-guide}
-\usepackage{hitchhiker's-guide}
 
 \thetitle{Probability and Optimization} % Title as it appears in the header.
+\newcommand{\versionNumber}{0.1.0}
 
 % Custom Commands for this guide
 \newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}
 \newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
-
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{ragged2e}
-\renewcommand\marginfont{%
-    \normalfont\scriptsize
-}
-\usepackage{qtree}
-\usepackage{cancel}
-\hfuzz=5pt
-
+\usepackage{mathtools}
+\newtheorem{case study}{Case Study}[chapter]
 % \addbibresource{references.bib} %update as necessary
 \begin{document}
-\RaggedRight
 \input{modules/titlepage}
 \input{modules/abstract_and_grading.tex}
 \tableofcontents
