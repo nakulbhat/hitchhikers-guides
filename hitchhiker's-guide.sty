@@ -1,14 +1,48 @@
-\ProvidesPackage{hitchhiker's-guide}[2025/01/03 Independent Numbering for Theorem-like Environments]
+\ProvidesPackage{hitchhiker's-guide}
 
-% Abstracts
+% ================================
+% Custom Commands
+% ================================
+% Label and index a section simultaneously.
+\NewDocumentCommand{\labelandindex}{m o}{%
+  \IfValueTF{#2}{%
+    \label{#2} \index{#1}%
+  }{%
+    \label{#1} \index{#1}%
+  }%
+}
+
+% Define the title of the guide.
+\newcommand{\thetitle}[1]{\def\guidetitle{#1}}
+
+% ================================
+% Header and Footer Configuration
+% ================================
+\RequirePackage{fancyhdr} % Enhanced headers and footers.
+\pagestyle{fancy}
+\fancyhead[LE]{\thepage} % Left-even: Page number.
+\fancyhead[RE]{\guidetitle} % Right-even: Guide title.
+\fancyhead[LO]{\leftmark} % Left-odd: Chapter title.
+\fancyhead[RO]{\thepage} % Right-odd: Page number.
+\fancyfoot{} % No footer content.
+\renewcommand{\footrulewidth}{0pt} % Disable footer rule.
+
+% Update chapter mark for fancyhdr.
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+% ================================
+% Abstract Environment
+% ================================
 \newenvironment{abstract}
     {\section*{Abstract}\itshape}
     {\par}
 
+% ================================
 % Code Listings
-\RequirePackage{xcolor}
-\definecolor{lightgray}{rgb}{0.9, 0.9, 0.9}
-\RequirePackage{minted}
+% ================================
+\RequirePackage{xcolor} % Color definitions.
+\definecolor{lightgray}{rgb}{0.9, 0.9, 0.9} % Light gray background for code.
+\RequirePackage{minted} % Syntax-highlighted code listings.
 \setminted{
     bgcolor=lightgray,
     fontsize=\small,
@@ -20,26 +54,26 @@
     texcl=true
 }
 
-% Load amsmath for advanced numbering
-\RequirePackage{amsmath}
+% ================================
+% Custom Theorem Style
+% ================================
+\newtheoremstyle{customstyle} % Unified style for theorems and environments.
+{10pt}   % Space above.
+{10pt}   % Space below.
+{\normalfont} % Body font.
+{}        % Indentation.
+{\bfseries} % Theorem head font.
+{:}       % Punctuation after theorem head.
+{.5em}    % Space after theorem head.
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % Custom theorem head spec.
 
-% Define a unified theorem-like style
-\RequirePackage{amsthm}
-
-\newtheoremstyle{customstyle} % Unified style
-{10pt}   % Space above
-{10pt}   % Space below
-{\normalfont} % Body font
-{}        % Indent amount
-{\bfseries} % Theorem head font
-{:}       % Punctuation after theorem head
-{.5em}    % Space after theorem head
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % Custom head spec
-
-% Apply the custom style
+% Apply the custom theorem style.
 \theoremstyle{customstyle}
 
-% Define environments with independent counters tied to chapters
+% ================================
+% Custom Environments
+% ================================
+% Environments with independent counters tied to chapters.
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
 \newtheorem{corollary}{Corollary}[chapter]
@@ -49,5 +83,3 @@
 \newtheorem{wormhole}{Wormhole}[chapter]
 \newtheorem{fallacy}{Fallacy}[chapter]
 \newtheorem{example}{Example}[chapter]
-
-

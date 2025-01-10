@@ -14,6 +14,19 @@ Removed - for now removed features.
 Fixed - for any bug fixes.
 Security - in case of vulnerabilities. -->
 
+<!--Checklist-->
+<!-- Update version number in main -->
+<!-- write changelog -->
+<!-- Commit all changes -->
+
+## v1.1.0
+Changed - reordered template files 
+Changed - Moved package import to class file
+Added - update_template script
+Added - packages: array, booktabs, qtree, cancel
+Added - commands: \hfuzz=5pt
+
+
 ## v1.0.3
 Added - tabularx package
 Changed - Moved version number to main
