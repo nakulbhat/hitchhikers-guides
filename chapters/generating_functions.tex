@@ -1,0 +1,61 @@
+\chapter{Generating Functions}
+The general form of a generating function for a sequence \mbox{$\langle a_1, a_2, \dots a_n\rangle$} is given by 
+\[
+    \sum_{n=0}^{\infty}a_n x^n
+\]
+Generating functions are used as a way of representing sequences. Dealing directly with sequences is cumbersome, and a generating fuction makes operations like multiplication trivial. The variable used in a generating function is of no significance, as it is only a formal sum, and we do no worry about convergence as we would with a normal series.
+
+Generating functions can be formed easily and manipulated, but the essence of a generating function lies in the sequence it encodes. For example, 
+\[
+    \langle1,2,3,4\dots\rangle = \sum_{n=0}^{\infty} nx^n = 0x^0 + 1x^1 + 2x^2 \dots
+\]
+is a simple generating function. Suppose we have another generating function
+\[
+    \langle1,4,9,16 \dots\rangle =  \sum_{n=0}^{\infty} n^2x^n = 0x^0 + 1x^1 + 4x^2 \dots
+\]
+Now, assume we have to find the sequence which combines them using `And' or the multiplication operator. And then we have to find the \mbox{$r^{th}$} term of the new sequence. This would not be easy (but is still possible) to find by just multiplying each of the sequences. But it is made trivial by generating functions.
+\begin{align*}
+    \langle1,2,3,4\dots\rangle &\times \langle1,4,9,16 \dots\rangle\\
+    (0x^0 + 1x^1 + 2x^2 \dots) &\times (0x^0 + 1x^1 + 4x^2 \dots)\\
+    (\sum_{n=0}^{\infty} nx^n) &\times (\sum_{n=0}^{\infty} n^2x^n)\\
+    \sum_{n=0}^{\infty} (nx^n &\times n^2 x^n)
+    = \sum_{n=0}^{\infty} n^3 x^{2n}
+\end{align*}
+Now, to find the coefficient of the \mbox{$r^{th}$} term, we substitute \mbox{$r = 2n$},
+\[
+    a_r = \left(\frac{r}{2}\right)^3
+\]
+
+\begin{example}
+    [Choose one of three]
+    Write the generating function for choosing one of three objects \mbox{$a,b,c$}.
+
+    \textbf{Ans:} The generating function can be written as 
+    \[
+        (\underbrace{1}_{\text{not choosing}}+\underbrace{ax}_{\text{choosing}})\underbrace{(1+bx)}_{\text{obj. b}}\underbrace{(1+cx)}_{\text{obj. c}}
+    \]
+    Multiplying and taking \mbox{$a=b=c=1$} ways (of representing each obj) we get,
+    \[
+        1+3x+3x^2+x^3
+    \]
+    Which upon further evaluation gives
+    \[
+        (1+x)^3
+    \]
+\end{example}
+
+\section{Combination Generating Functions}
+
+\subsection{Combination without Repetition}
+
+The generating function for choosing \mbox{$r$} objects out of \mbox{$n$} objects is given by
+\[
+    \Comb{n}{0}x^0 + \Comb{n}{1}x^1 + \Comb{n}{2}x^2 + \dots
+\]
+Which basically says that there are \mbox{$\Comb{n}{2}$} ways of choosing two objects out of \mbox{$n$} objects etc.
+We can note that this series is equal to the binomial
+\[
+    (1+x)^n
+\]
+
+\subsection{Combianation with Repetition}
