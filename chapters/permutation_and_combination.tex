@@ -226,7 +226,7 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
 \end{example}
 
 \begin{example}
-    [Sum of Permutation]
+    [Sum of Permutations]
     Find the sum of all 4 digit numbers that can be obtained by using the digits 1, 2, 3, 4 once in each.
 
     \textbf{Ans:} The answer to this may not be obvious at first. So, we try permuting these numbers. We already know that there will be \mbox{$4!$} permutations, from this set
@@ -277,6 +277,116 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
     \]
 \end{example}
 
-\begin{case study}
+\begin{case_study}
     [Diagonal Division]
-\end{case study}
+    What are the number of line-segments in the diagonals of a convex decagon?
+
+    \textbf{Ans:} This is a really hard problem, and I will do my best to guide you to the answer. But it requires that you pick up a pen and try to solve this problem as we go. We will first find a way to count the number of diagonals that are present in a decagon, then we will move on to counting the number of intersections, and then we will look at how many line segments these intersections create.
+
+    Suppose we are give a n-sided polygon. The number of diagonals of that polygon, is relatively easy to find. A diagonal is defined as a line segment connecting two vertices of a polygon. So, the number of diagonals in a polygon is the number of ways we can pick two points in the polygon. In a decagon, we have
+    \[
+        \Comb{10}{2} \text{ diagonals}
+    \]
+
+    Now, we can focus on counting the number of intersections between these diagonals. We can note that not all diagonals intersect. So, we cannot simply count the total number of pairs of diagonals. On observation however, we can note that if you pick 4 pairs of points, there is guaranteed to be exactly one intersection point for that unordered quadruplet. So, we try to count the number of intersections with
+    \[
+        \Comb{10}{4} \text{ intersections}
+    \]
+
+    \begin{tikzpicture}
+        % Draw the decagon
+        \foreach \i in {1,...,10} {
+                \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
+                \fill[black] (P\i) circle (2pt);
+            }
+        % Highlight two vertices
+        \fill[red] (P1) circle (4pt); % First vertex
+        \fill[blue] (P6) circle (4pt); % Second vertex
+        % Draw the edges
+        \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
+                \draw (P\i) -- (P\j);
+            }
+    \end{tikzpicture}
+    \hfill
+    \begin{tikzpicture}
+        % Draw the decagon
+        \foreach \i in {1,...,10} {
+                \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
+                \fill[black] (P\i) circle (2pt);
+            }
+        % Highlight four vertices
+        \fill[red] (P1) circle (4pt); % First vertex
+        \fill[blue] (P6) circle (4pt); % Second vertex
+        \fill[green] (P3) circle (4pt); % Third vertex
+        \fill[orange] (P8) circle (4pt); % Fourth vertex
+        % Draw the edges
+        \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
+                \draw (P\i) -- (P\j);
+            }
+        % Draw the diagonals
+        \draw[thick, red] (P1) -- (P6); % First diagonal
+    \end{tikzpicture}
+    \hfill
+    \begin{tikzpicture}
+        % Draw the decagon
+        \foreach \i in {1,...,10} {
+                \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
+                \fill[black] (P\i) circle (2pt);
+            }
+        % Highlight four vertices
+        \fill[red] (P1) circle (4pt); % First vertex
+        \fill[blue] (P6) circle (4pt); % Second vertex
+        \fill[green] (P3) circle (4pt); % Third vertex
+        \fill[orange] (P8) circle (4pt); % Fourth vertex
+        % Draw the edges
+        \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
+                \draw (P\i) -- (P\j);
+            }
+        % Draw the diagonals
+        \draw[thick, red] (P1) -- (P6); % First diagonal
+        \draw[thick, green] (P3) -- (P8); % Second diagonal
+        % Highlight the intersection point
+        \coordinate (Intersection) at (intersection of P1--P6 and P3--P8);
+        \fill[purple] (Intersection) circle (4pt); % Intersection point
+    \end{tikzpicture}
+    \hfill
+    \begin{tikzpicture}
+        % Draw the decagon
+        \foreach \i in {1,...,10} {
+                \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
+                \fill[black] (P\i) circle (2pt);
+            }
+        % Highlight four vertices
+        \fill[red] (P1) circle (4pt); % First vertex
+        \fill[blue] (P6) circle (4pt); % Second vertex
+        \fill[green] (P3) circle (4pt); % Third vertex
+        \fill[orange] (P8) circle (4pt); % Fourth vertex
+        % Draw the edges
+        \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
+                \draw (P\i) -- (P\j);
+            }
+        % Calculate the intersection point
+        \coordinate (Intersection) at (intersection of P1--P6 and P3--P8);
+        \fill[purple] (Intersection) circle (4pt); % Intersection point
+
+        % Draw the segmented diagonals
+        \draw[thick, red] (P1) -- (Intersection); % Red part
+        \draw[thick, blue] (Intersection) -- (P6); % Blue part
+        \draw[thick, green] (P3) -- (Intersection); % Green part
+        \draw[thick, orange] (Intersection) -- (P8); % Orange part
+    \end{tikzpicture}
+
+    Once this is done, we can note that of the existing diagonals, each intersection doubles the number of line segements. Illustrated in the figure above, we can see the existence of the green and red diagonals, but, the purple intersection splits them into 4 diagonal line segments, namely green, red, blue and orange.
+
+    \noindent So, the total number of diagonal line segments is
+    \begin{align*}
+        \text{Total number of line segments} =
+        \quad & \underbrace{\text{Number of diagonals}- 10}_{\substack{\text{Exclude original diagonals}}} \\
+              & + 2 \times \text{Number of intersections}.                                                 \\
+    \end{align*}
+    \therefore\ we get,
+    \begin{equation*}
+        \Comb{10}{2} - 10 + 2 \times \Comb{10}{4} \text{ line segments}
+    \end{equation*}
+
+\end{case_study}
