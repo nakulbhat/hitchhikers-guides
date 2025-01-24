@@ -285,8 +285,9 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
 
     Suppose we are give a n-sided polygon. The number of diagonals of that polygon, is relatively easy to find. A diagonal is defined as a line segment connecting two vertices of a polygon. So, the number of diagonals in a polygon is the number of ways we can pick two points in the polygon. In a decagon, we have
     \[
-        \Comb{10}{2} \text{ diagonals}
+        \Comb{10}{2} - 10 \text{ diagonals}
     \]
+    The subtracted 10 accounts for the sides of the decagon as they are also incorrectly counted as diagonals.
 
     Now, we can focus on counting the number of intersections between these diagonals. We can note that not all diagonals intersect. So, we cannot simply count the total number of pairs of diagonals. On observation however, we can note that if you pick 4 pairs of points, there is guaranteed to be exactly one intersection point for that unordered quadruplet. So, we try to count the number of intersections with
     \[
@@ -381,8 +382,7 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
     \noindent So, the total number of diagonal line segments is
     \begin{align*}
         \text{Total number of line segments} =
-        \quad & \underbrace{\text{Number of diagonals}- 10}_{\substack{\text{Exclude original diagonals}}} \\
-              & + 2 \times \text{Number of intersections}.                                                 \\
+        \underbrace{\text{Number of pairs}- 10}_{\substack{\text{Exclude Sides}}} + 2 \times \text{Number of intersections}. \\
     \end{align*}
     \therefore\ we get,
     \begin{equation*}
