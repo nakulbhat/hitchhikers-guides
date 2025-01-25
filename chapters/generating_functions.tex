@@ -1,29 +1,29 @@
 \chapter{Generating Functions}
-The general form of a generating function for a sequence \mbox{$\langle a_1, a_2, \dots a_n\rangle$} is given by
+The general form of a generating function for a sequence \mbox{$\langle a_1, a_2, \cdots a_n\rangle$} is given by
 \[
     \sum_{n=0}^{\infty}a_n x^n
 \]
-Generating functions are used as a way of representing sequences. Dealing directly with sequences is cumbersome, and a generating fuction makes operations like multiplication trivial. The variable used in a generating function is of no significance, as it is only a formal sum, and we do no worry about convergence as we would with a normal series.
+Generating functions are used as a way of representing sequences. Dealing directly with sequences is cumbersome, and a generating function makes operations like multiplication trivial. The variable used in a generating function is of no significance, as it is only a formal sum, and we do no worry about convergence as we would with a normal series.
 
 Generating functions can be formed easily and manipulated, but the essence of a generating function lies in the sequence it encodes. For example,
 \[
-    \langle1,2,3,4\dots\rangle = \sum_{n=0}^{\infty} nx^n = 0x^0 + 1x^1 + 2x^2 \dots
+    \langle1,2,3,4\cdots\rangle = \sum_{n=0}^{\infty} nx^n = 0x^0 + 1x^1 + 2x^2 \cdots
 \]
 is a simple generating function. Suppose we have another generating function
 \[
-    \langle1,4,9,16 \dots\rangle =  \sum_{n=0}^{\infty} n^2x^n = 0x^0 + 1x^1 + 4x^2 \dots
+    \langle1,4,9,16 \cdots\rangle =  \sum_{n=0}^{\infty} n^2x^n = 0x^0 + 1x^1 + 4x^2 \cdots
 \]
 Now, assume we have to find the sequence which combines them using `And' or the multiplication operator. And then we have to find the \mbox{$r^{th}$} term of the new sequence. This would not be easy (but is still possible) to find by just multiplying each of the sequences. But it is made trivial by generating functions.
 \begin{align*}
-    \langle1,2,3,4\dots\rangle & \times \langle1,4,9,16 \dots\rangle \\
-    (0x^0 + 1x^1 + 2x^2 \dots) & \times (0x^0 + 1x^1 + 4x^2 \dots)   \\
-    (\sum_{n=0}^{\infty} nx^n) & \times (\sum_{n=0}^{\infty} n^2x^n) \\
-    \sum_{n=0}^{\infty} (nx^n  & \times n^2 x^n)
+    \langle1,2,3,4\cdots\rangle & \times \langle1,4,9,16 \cdots\rangle  \\
+    (0x^0 + 1x^1 + 2x^2 \cdots) & \times (0x^0 + 1x^1 + 4x^2 \cdots)    \\
+    (\sum_{n=0}^{\infty} nx^n)  & \times (\sum_{n=0}^{\infty} n^2x^n)\, \\
+    \sum_{n=0}^{\infty} (nx^n   & \times n^2 x^n)
     = \sum_{n=0}^{\infty} n^3 x^{2n}
 \end{align*}
 Now, to find the coefficient of the \mbox{$r^{th}$} term, we substitute \mbox{$r = 2n$},
 \[
-    a_r = \left(\frac{r}{2}\right)^3
+    a_r = {\left(\frac{r}{2}\right)}^3
 \]
 
 \begin{example}
@@ -32,7 +32,7 @@ Now, to find the coefficient of the \mbox{$r^{th}$} term, we substitute \mbox{$r
 
     \textbf{Ans:} The generating function can be written as
     \[
-        (\underbrace{1}_{\text{not choosing}}+\underbrace{ax}_{\text{choosing}})\underbrace{(1+bx)}_{\text{obj. b}}\underbrace{(1+cx)}_{\text{obj. c}}
+        (\underbrace{1}_{\text{not choosing}}+\underbrace{ax}_{\text{choosing}})\underbrace{(1+bx)}_{\text{obj b}}\underbrace{(1+cx)}_{\text{obj c}}
     \]
     Multiplying and taking \mbox{$a=b=c=1$} ways (of representing each obj) we get,
     \[
@@ -40,7 +40,7 @@ Now, to find the coefficient of the \mbox{$r^{th}$} term, we substitute \mbox{$r
     \]
     Which upon further evaluation gives
     \[
-        (1+x)^3
+        {(1+x)}^3
     \]
 \end{example}
 
@@ -50,32 +50,32 @@ Now, to find the coefficient of the \mbox{$r^{th}$} term, we substitute \mbox{$r
 
 The generating function for choosing \mbox{$r$} objects out of \mbox{$n$} objects is given by
 \[
-    \Comb{n}{0}x^0 + \Comb{n}{1}x^1 + \Comb{n}{2}x^2 + \dots
+    \Comb{n}{0}x^0 + \Comb{n}{1}x^1 + \Comb{n}{2}x^2 + \cdots
 \]
 Which basically says that there are \mbox{$\Comb{n}{2}$} ways of choosing two objects out of \mbox{$n$} objects etc.
 We can note that this series is equal to the binomial
 \[
-    (1+x)^n
+    {(1+x)}^n
 \]
 
 \subsection{Combination with Repetition}
 We can represent the possibility of choosing an object infinitely many times using
 \[
-    1+x+x^2+x^3\dots = \sum_{i=0}^{\infty} x^i = \frac{1}{1-x}
+    1+x+x^2+x^3\cdots = \sum_{i=0}^{\infty} x^i = \frac{1}{1-x}
 \]
 We do not bother with the convergence of the series as it is only a formal sum.
 
 Suppose we have \mbox{$n$} objects, we can modify the above equation to
 \[
-    (1+x+x^2+x^3\dots)^n = (\sum_{i=0}^{\infty} x^i)^n = \left(\frac{1}{1-x}\right)^n
+    {(1+x+x^2+x^3\cdots)}^n = {(\sum_{i=0}^{\infty} x^i)}^n = {\left(\frac{1}{1-x}\right)}^n
 \]
 Which simplifies to
 \[
-    (1-x)^{-n}
+    {(1-x)}^{-n}
 \]
 And when we use the binomial expansion for negative powers,
 \[
-    \Comb{n+0-1}{0}x^0+\Comb{n+1-1}{1}x^1\dots = \sum_{i=1}^{\infty}\Comb{n+i-1}{i}x^i
+    \Comb{n+0-1}{0}x^0+\Comb{n+1-1}{1}x^1\cdots = \sum_{i=1}^{\infty}\Comb{n+i-1}{i}x^i
 \]
 \begin{example}
     [Limited Repetition Choosing]
@@ -94,7 +94,7 @@ And when we use the binomial expansion for negative powers,
 
     \textbf{Ans:} The generating function is
     \[
-        (x^2+x^3\dots)^5 = (x^2)^5 (1+x+x^2\dots)^5 = x^{10} (1-x)^{-5}
+        {(x^2+x^3\cdots)}^5 = {(x^2)}^5 {(1+x+x^2\cdots)}^5 = x^{10} {(1-x)}^{-5}
     \]
 \end{example}
 
@@ -103,22 +103,107 @@ And when we use the binomial expansion for negative powers,
     \centering
     \begin{tabularx}{\textwidth}{Xll}
         \toprule
-        \textbf{Expanded Form}                                     & \textbf{Summation Form}                               & \textbf{Generating Function}         \\
+        \textbf{Expanded Form}                                        & \textbf{Summation Form}                                       & \textbf{Generating Function}   \\
         \midrule
-        \mbox{$1+x+x^2+\dots$}                                     & \mbox{$\sum_{n=0}^{\infty} x^n$}                                & \mbox{$\frac{1}{1-x}$}         \\
-        \mbox{$1 + \binom{n}{1}x + \binom{n}{2}x^2 + \dots $}      & \mbox{$\sum_{r=0}^{n} \binom{n}{r} x^r$}                        & \mbox{$(1+x)^n$}               \\
-        \mbox{$1 + \binom{n}{1}x^m + \binom{n}{2}x^{2m} + \dots $} & \mbox{$\sum_{r=0}^{n} \binom{n}{r} x^{rm}$}                     & \mbox{$(1+x^m)^{n}$}           \\
-        \mbox{$1 - \binom{n}{1}x + \binom{n}{2}x^2 - \dots $}      & \mbox{$\sum_{r=0}^{n} (-1)^r \binom{n}{r} x^r$}                 & \mbox{$(1-x)^n$}               \\
-        \mbox{$1 + \binom{n}{1}x + \binom{n+1}{2}x^2 + \dots$}     & \mbox{$\sum_{r=0}^{\infty} \binom{n+r-1}{r} x^r$}               & \mbox{$(1+x)^{-n}$}            \\
-        \mbox{$1 - \binom{n}{1}x + \binom{n+1}{2}x^2 - \dots$}     & \mbox{$\sum_{r=0}^{\infty} (-1)^r \binom{n+r-1}{r} x^r$}        & \mbox{$(1-x)^{-n}$}            \\
-        \mbox{$1+x+x^2+\dots+x^m$}                                 & \mbox{$\sum_{n=0}^{m} x^n$}                                     & \mbox{$\frac{1-x^{m+1}}{1-x}$} \\
-        \mbox{$1+nx+n^2\frac{x^2}{2!}+n^3\frac{x^3}{3!}$}          & \mbox{$\sum_{r=0}^{\infty} n^r \frac{x^r}{r!}$}                 & \mbox{$e^{nx}$}                \\
-        \mbox{$1+x+rx+\frac{r(r-1)}{2!}x^2+\dots$}                 & \mbox{$\sum_{n=0}^{\infty} \frac{r(r-1)\cdots(r-n+1)}{n!} x^n$} & \mbox{$(1+x)^r$}               \\
-        \mbox{$1+\frac{x^2}{2!}+\frac{x^4}{4!}+\dots$}             & \mbox{$\sum_{n=0}^{\infty} \frac{x^{2n}}{(2n)!}=\cos(x)$}       & \mbox{$\frac{e^x+e^{-x}}{2}$}  \\
-        \mbox{$x+\frac{x^3}{3!}+\frac{x^5}{5!}+\dots$}             & \mbox{$\sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!}=\sin(x)$}   & \mbox{$\frac{e^x+e^{-x}}{2}$}  \\
+        \mbox{$1+x+x^2+\cdots$}                                       & \mbox{$\sum_{n=0}^{\infty} x^n$}                              & \mbox{$\frac{1}{1-x}$}         \\
+        \mbox{$1 + \;\Comb{n}{1}x + \;\Comb{n}{2}x^2 + \cdots $}      & \mbox{$\sum_{r=0}^{n} \;\Comb{n}{r} x^r$}                     & \mbox{${(1+x)}^n$}             \\
+        \mbox{$1 + \;\Comb{n}{1}x^m + \;\Comb{n}{2}x^{2m} + \cdots $} & \mbox{$\sum_{r=0}^{n} \;\Comb{n}{r} x^{rm}$}                  & \mbox{${(1+x^m)}^{n}$}         \\
+        \mbox{$1 - \;\Comb{n}{1}x + \;\Comb{n}{2}x^2 - \cdots $}      & \mbox{$\sum_{r=0}^{n} {(-1)}^r \;\Comb{n}{r} x^r$}            & \mbox{${(1-x)}^n$}             \\
+        \mbox{$1 - \;\Comb{n}{1}x + \;\Comb{n+1}{2}x^2 - \cdots$}     & \mbox{$\sum_{r=0}^{\infty} {(-1)}^r \;\Comb{n+r-1}{r} x^r$}   & \mbox{${(1+x)}^{-n}$}          \\
+        \mbox{$1 + \;\Comb{n}{1}x + \;\Comb{n+1}{2}x^2 + \cdots$}     & \mbox{$\sum_{r=0}^{\infty} \;\Comb{n+r-1}{r} x^r$}            & \mbox{${(1-x)}^{-n}$}          \\
+        \mbox{$1+x+x^2+\cdots+x^m$}                                   & \mbox{$\sum_{n=0}^{m} x^n$}                                   & \mbox{$\frac{1-x^{m+1}}{1-x}$} \\
+        \mbox{$1+nx+n^2\frac{x^2}{2!}+n^3\frac{x^3}{3!}+\cdots$}      & \mbox{$\sum_{r=0}^{\infty} n^r \frac{x^r}{r!}$}               & \mbox{$e^{nx}$}                \\
+        \mbox{$1+x+rx+\frac{r(r-1)}{2!}x^2+\cdots$}                   & \mbox{$\sum_{n=0}^{\infty} \Perm{n}{r} \frac{x^r}{r!}$}       & \mbox{${(1+x)}^r$}             \\
+        \mbox{$1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots$}               & \mbox{$\sum_{n=0}^{\infty} \frac{x^{2n}}{(2n)!}=\cos(x)$}     & \mbox{$\frac{e^x+e^{-x}}{2}$}  \\
+        \mbox{$x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots$}               & \mbox{$\sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!}=\sin(x)$} & \mbox{$\frac{e^x+e^{-x}}{2}$}  \\
         \bottomrule
     \end{tabularx}
-    \caption{Basic Generating Functions}
-    \label{tab:basic_Permutations}
+    \caption{Basic Generating Functions}\label{tab:basic_generating_functions}
 \end{table}
 
+
+\begin{example}
+    [Marbles from a Pile]
+    Using generating functions, find the number of ways to select 10 marbles from a large pile of blue, red and white marbles if
+    \begin{enumerate}
+        \item Selection has at least two marbles of each colour,
+        \item Solution has at most two red marbles,
+        \item The selection has an even number of blue marbles.
+    \end{enumerate}
+
+    \textbf{Ans:} \begin{enumerate}
+        \item \begin{align*}
+                   & {(x^2+x^3\cdots)}^3                \\
+                   & x^6 {(1+x+x^2\cdots)}^3            \\
+                   & x^6 {\left(\frac{1}{1-x}\right)}^3 \\
+                   & x^6 {(1-x)}^{-3}
+              \end{align*}
+              using the general term for \mbox{${(1-x)}^{-3}$}, we get
+              \[
+                  x^6\quad \Comb{3+r-1}{r} {(-1)}^r x^r
+              \]
+              Now, to get the term for \mbox{$x^{10}$}, put \mbox{$r=4$}
+              \[
+                  x^6\quad\Comb{6}{4} x^4
+              \]
+              where we get the coefficient, \mbox{$\Comb{6}{4}$} ways.
+
+        \item \begin{align*}
+                   & (1+x+x^2){(1+x+x^2\cdots)}^2             \\
+                   & (1+x+x^2){(1-x)}^{-2}                    \\
+                   & (1+x+x^2)\left(\Comb{2+r-1}{r}x^r\right)
+              \end{align*}
+              multiplying with each term on the left, we get three terms where \mbox{$x^{10}$} is possible
+              \[
+                  \Comb{2+10-1}{10}x^{10} + \Comb{2+9-1}{9}x^{10} + \Comb{2+8-1}{8}x^{10}
+              \]
+              now we get \mbox{$\Comb{11}{10} + \Comb{10}{9}+ \Comb{9}{8} = 30$} ways
+
+        \item \begin{align*}
+                   & (1+x^2+x^4+x^6+x^8+x^{10}){(1+x+x^2\cdots)}^2\, \\
+                   & (1+x^2+x^4+x^6+x^8+x^{10}){(1-x)}^{-2}         \\
+                   & (1+x^2+x^4+x^6+x^8+x^{10})\Comb{2+r-1}{r}x^r\, \\
+              \end{align*}
+              Now, finding coefficients of \mbox{$x^{10}$},
+              \[
+                  \Comb{11}{10} + \Comb{9}{8} + \Comb{7}{6} +\Comb{5}{4} + \Comb{3}{2} + \Comb{1}{0} = 36 \text{ ways}
+              \]
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    [Examiners' Problem]
+    In how many ways can an examiner distribute 30 marks among 8 questions such that all questions get at least 2 marks?
+
+    \textbf{Ans:}
+    \begin{gather*}
+        {(x^2 + x^3 \cdots)}^8 \\
+        x^{16}\quad {(1 - x)}^{-8}\\
+        x^{16}\quad\Comb{8 + r - 1}{r} x^r  \tag*{r = 14,} \\
+        \Comb{21}{14} x^{30}
+    \end{gather*}
+\end{example}
+\begin{example}
+    [Ice Cream Selection]
+    How many ways are there to select 12 ice creams from 5 types of sundaes with at most 4 of each type?
+    \textbf{Ans:}
+    \begin{gather*}
+        {(1 + x + x^2 + x^3 + x^4 )}^5 \\
+        {\left(\frac{1 - x^5}{1 - x}\right)}^5 \\
+        {(1 - x^5)}^5 {(1 - x)}^{-5}\\
+        {( - 1)}^r\: \Comb{5}{r} x^5r \times \Comb{5 + r - 1}{r} x^r \\
+        {( - 1)}^r\: \Comb{5}{r} \Comb{5 + r - 1}{r}\: x^{6r} \tag*{r = 2,} \\
+        \Comb{5}{2} \Comb{6}{2} x^{12}
+    \end{gather*}
+\end{example}
+
+\begin{example}
+    [Collecting Money from People]
+    Find the number of ways to collect \mathdollar15 from 20 different people if 19 people can give \mathdollar1 or nothing and the last person can give either \mathdollar1 or \mathdollar5 or nothing
+    
+    \textbf{Ans:}\begin{gather*}
+        {(1 + x)}^{19} {(1 + x + x^5)}\\
+        \Comb{19}{r} x^r {(1 + x + x^5)} \tag*{r = 19,15}\\
+        {(\Comb{19}{19} + \Comb{19}{15})} x^{20}
+    \end{gather*}
+\end{example}
