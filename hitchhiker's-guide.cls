@@ -55,7 +55,8 @@
 % Mathematics
 % ================================
 \RequirePackage{amsmath, amssymb, amsfonts, amsthm} % Standard AMS packages for math.
-\usepackage{cancel} % Strike-through for mathematical terms.
+\RequirePackage{cancel} % Strike-through for mathematical terms.
+\RequirePackage{mathtools}
 
 % ================================
 % Graphics and Figures

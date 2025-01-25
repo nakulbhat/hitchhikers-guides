@@ -19,6 +19,10 @@ Security - in case of vulnerabilities. -->
 <!-- write changelog -->
 <!-- Commit all changes -->
 
+## v1.2.0
+Added - package: mathtools
+Added - environment: case_study
+
 ## v1.1.0
 Changed - reordered template files 
 Changed - Moved package import to class file
