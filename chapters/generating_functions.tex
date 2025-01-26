@@ -113,7 +113,7 @@ And when we use the binomial expansion for negative powers,
         \mbox{$1 + \;\Comb{n}{1}x + \;\Comb{n+1}{2}x^2 + \cdots$}     & \mbox{$\sum_{r=0}^{\infty} \;\Comb{n+r-1}{r} x^r$}            & \mbox{${(1-x)}^{-n}$}          \\
         \mbox{$1+x+x^2+\cdots+x^m$}                                   & \mbox{$\sum_{n=0}^{m} x^n$}                                   & \mbox{$\frac{1-x^{m+1}}{1-x}$} \\
         \mbox{$1+nx+n^2\frac{x^2}{2!}+n^3\frac{x^3}{3!}+\cdots$}      & \mbox{$\sum_{r=0}^{\infty} n^r \frac{x^r}{r!}$}               & \mbox{$e^{nx}$}                \\
-        \mbox{$1+x+rx+\frac{r(r-1)}{2!}x^2+\cdots$}                   & \mbox{$\sum_{n=0}^{\infty} \Perm{n}{r} \frac{x^r}{r!}$}       & \mbox{${(1+x)}^r$}             \\
+        \mbox{$1+x+nx+\frac{n(n-1)}{2!}x^2+\cdots$}                   & \mbox{$\sum_{n=0}^{\infty} \Perm{n}{r} \frac{x^r}{r!}$}       & \mbox{${(1+x)}^r$}             \\
         \mbox{$1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots$}               & \mbox{$\sum_{n=0}^{\infty} \frac{x^{2n}}{(2n)!}=\cos(x)$}     & \mbox{$\frac{e^x+e^{-x}}{2}$}  \\
         \mbox{$x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots$}               & \mbox{$\sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!}=\sin(x)$} & \mbox{$\frac{e^x+e^{-x}}{2}$}  \\
         \bottomrule
@@ -161,8 +161,8 @@ And when we use the binomial expansion for negative powers,
 
         \item \begin{align*}
                    & (1+x^2+x^4+x^6+x^8+x^{10}){(1+x+x^2\cdots)}^2\, \\
-                   & (1+x^2+x^4+x^6+x^8+x^{10}){(1-x)}^{-2}         \\
-                   & (1+x^2+x^4+x^6+x^8+x^{10})\Comb{2+r-1}{r}x^r\, \\
+                   & (1+x^2+x^4+x^6+x^8+x^{10}){(1-x)}^{-2}          \\
+                   & (1+x^2+x^4+x^6+x^8+x^{10})\Comb{2+r-1}{r}x^r\,  \\
               \end{align*}
               Now, finding coefficients of \mbox{$x^{10}$},
               \[
@@ -200,10 +200,129 @@ And when we use the binomial expansion for negative powers,
 \begin{example}
     [Collecting Money from People]
     Find the number of ways to collect \mathdollar15 from 20 different people if 19 people can give \mathdollar1 or nothing and the last person can give either \mathdollar1 or \mathdollar5 or nothing
-    
+
     \textbf{Ans:}\begin{gather*}
         {(1 + x)}^{19} {(1 + x + x^5)}\\
-        \Comb{19}{r} x^r {(1 + x + x^5)} \tag*{r = 19,15}\\
-        {(\Comb{19}{19} + \Comb{19}{15})} x^{20}
+        \Comb{19}{r} x^r {(1 + x + x^5)} \tag*{r = 15,14,10}\\
+        {(\Comb{19}{15} + \Comb{19}{14} +\Comb{19}{10})} x^{20}
     \end{gather*}
+\end{example}
+
+
+\begin{example}
+    [Distributing Oranges]
+    While Shopping on saturday, Mary bought 12 oranges for her children, Grace, George and Frank. In how many ways can she distribute the oranges so that Grace gets at least 4, George and Frank get at least 2 and Frank gets no more than 5.
+
+    \textbf{Ans:}
+    \begin{gather*}
+        {(x^4 + x^5 \cdots)}{(x^2 + x^3 \cdots )}{(x^2 + x^3 + x^4 + x^5)} \\
+        x^4 {(1 - x)}^{-1} \quad x^2 {(1 - x)}^{-1} \quad x^2 \frac{1 - x^4}{1 - x}\\
+        x^8 {(1 - x)}^{-3} (1 - x^4) \\
+        x^8 \quad \Comb{3 + r - 1}{r} x^r (1 - x^4) \tag*{r = 4,0}\\
+        \Comb{6}{4} - 1
+    \end{gather*}
+\end{example}
+
+\begin{example}
+    [Partial Restriction]
+    Find the number of ways to distribute 25 identical balls into 7 distinct boxex if the first box can have not more than 10 balls, but the other boxes have no restriction.
+
+    \textbf{Ans:}
+    \begin{gather*}
+        {(1 + x + x^2\cdots + x^{10})} {(1 + x + x^2\cdots )}^6\\
+        {\left(\frac{1 - x^{11}}{1 - x}\right)} {(1 - x)}^{-6} \\
+        {(1 - x^{11})} {(1 - x)}^{-7} \\
+        {(1 - x^{11})} \Comb{6 + r - 1}{r} x^r \tag*{r = 25,14} \\
+        \left(\Comb{30}{25} - \Comb{19}{14} \right) x^{25}
+    \end{gather*}
+\end{example}
+
+\section{Permutation Genetating Functions}
+\subsection{Permutation Without Repetition}
+
+We know that
+\begin{equation*}
+    \Perm{n}{r} = \frac{\Comb{n}{r}}{r!}
+\end{equation*}
+And we can see in the binomial distribution,
+\begin{equation*}
+    \sum_{r = 0}^{n} \Comb{n}{r} x^r = \sum_{r = 0}^{n} \Perm{n}{r} \frac{x^r}{r!}
+\end{equation*}
+So, to find the possible permutations, we take the coefficient of \mbox{\(\frac{x^r}{r!}\)} instead of \mbox{\(x^r\)}.
+
+\subsection{Permutation With Repetition}
+The sequence encoding permutations with repetion is given by
+\begin{equation*}
+    \langle 1,n,n^2,n^3 \cdots\rangle
+\end{equation*}
+And the series encoding this sequence,
+\begin{gather*}
+    1 + nx + n^2\frac{x^2}{2!} + n^3 \frac{x^3}{3!} \cdots \\
+    \sum_{r = 0}^{\infty} n^r \frac{x^r}{r!} = e^{nx}
+\end{gather*}
+
+\begin{example}
+    [ENGINE Permutation]
+    Find the number of arrangements of 4 letters from the word ENGINE
+
+    \textbf{Ans:} We can note that the letters N and E are repeating twice, while G and I are repeating once each. So,
+    \begin{gather*}
+        \underbrace{{(1 + x)}^2}_{\text{G and I}} \underbrace{{\left(1 + x + \frac{x^2}{2!}\right)}^2}_{\text{N and E}}\\
+        (1 + 2x + x^2) \cdot \left(1 + 2x + \frac{3x^2}{2} + x^3 + \frac{x^4}{4}\right) \tag*{finding \mbox{\(x^4\)}} \\
+        24 \times \left(1 +\frac{1}{4} + 1 + 2\right) \frac{x^4}{4!}\\
+        102 \text{ ways}
+    \end{gather*}
+\end{example}
+
+\begin{example}
+    [Distributing Toys]
+    How many ways are there to distribute 8 toys among 4 children if the first child should get at least 2?
+
+    \textbf{Ans:} \begin{gather*}
+        \left(\frac{x^2}{2!} + \frac{x^3}{3!}\cdots\right) {\left(1 + x + \frac{x^2}{2!}\cdots\right)}^3\\
+        (e^x - 1 - x) e^{3x} \marginnote{A little bit of complicated algebra has happened here, but when you do it on your own it will be clearer.}\\
+        e^{4x} - e^{3x} - xe^{3x} \\
+        ( 4^r - 3^r - r3^{r - 1} )\frac{x^r}{r!} \tag*{r = 8} \\
+        4^8 - 3^8 - 8 \times 3^7
+    \end{gather*}
+\end{example}
+
+\begin{example}
+    [Ternery Sequence]
+    How many 4 digit ternery sequences are there with at least one 0, one 1, one 2.
+
+    \textbf{Ans:} A ternery sequence is a sequence comprising of a three letter alphabet.
+    \begin{gather*}
+        {\left(x + \frac{x^2}{2!} +\frac{x^3}{3!} \cdots \right)}^3\\
+        {(e^x - 1)}^3 \\
+        e^{3x} + 3e^{2x} + 3e^x - 1 \\
+        3^r \frac{x^r}{r!} - 3 \times 2^r \frac{x^r}{r!} + 3 \times \frac{x^r}{r!} - 1 \tag*{r = 4}\\
+        3^4 - 3 \times 2^4 + 3 \text{ ways}
+    \end{gather*}
+\end{example}
+
+\begin{example}
+    [Ship Singal Permutation]
+    A ship carries 48 flags, 12 each of the colour white, red, black and blue. 12 of these flags are placed on a vertical pole, in order to communicate a signals to other ships. How many of these signals use\begin{enumerate}
+        \item an even number of blue flags and an odd number of black flags.
+        \item at least three white flags or no white flags at all.
+    \end{enumerate}
+    \textbf{Ans:}\begin{enumerate}
+        \item \begin{gather*}
+                  \left(1 + \frac{x^2}{2!} + \frac{x^4}{4!} \cdots \right) \left(x + \frac{x^3}{3!} + \frac{x^5}{5!}\cdots\right) {\left(1 + x +\frac{x^2}{2!} \cdots\right)}^2\\
+                  (\cos x) (\sin x) {(e^x)}^2 \\
+                  \frac{e^x + e^{ - x}}{2} \times  \frac{e^x - e^{-x}}{2} \times  e^2x\\
+                  \frac{1}{4} (e^{2x} - e^{ - 2x}) e^{2x}\\
+                  \frac{1}{4} (e^{4x} - 1) \tag*{r = 12}\\
+                  \frac{1}{4} 4^{12} \frac{x^{12}}{12!} = 4^{11} \text{ ways}
+              \end{gather*}
+
+        \item \begin{gather*}
+                  \left( 1 + \frac{x^{3}}{3!} \cdots \right) {\left( 1 + x + \frac{x^{2}}{2!} \cdots \right)}^3\\
+                  \left( e^x - x - \frac{x^2}{2!}\right) e^{3x}\\
+                  e^{4x} - xe^{3x} - \frac{x^2}{2!} e^{3x} \\
+                  4^r \frac{x^r}{r!} - 3^r \frac{x^{r+1}}{r!} - 3^r \frac{x^{r+2}}{r!} \marginnote{Note that we have to find the coeff. of \mbox{\(\frac{x^r}{r!}\)}, not just \mbox{\(x^r\)}.} \tag*{r=12,11,10} \\
+                  \left( 4^{12} - 3^{12} \cdot 12 - 3^{12} \cdot 12 \cdot 11  \right) \frac{x^{12}}{12!} 
+              \end{gather*}
+    \end{enumerate}
 \end{example}
