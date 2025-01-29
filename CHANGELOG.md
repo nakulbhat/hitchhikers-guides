@@ -19,6 +19,12 @@ Security - in case of vulnerabilities. -->
 <!-- write changelog -->
 <!-- Commit all changes -->
 
+## v2.0.0
+Changed - Merged sty into cls
+Added - Darkmode
+Changed - parindent to 0
+Removed - Versioning
+
 ## v1.2.0
 Added - package: mathtools
 Added - environment: case_study
