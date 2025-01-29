@@ -19,6 +19,10 @@ Security - in case of vulnerabilities. -->
 <!-- write changelog -->
 <!-- Commit all changes -->
 
+## v2.0.1
+Added - cleverref, hyperref
+Changed - Hide links
+
 ## v2.0.0
 Changed - Merged sty into cls
 Added - Darkmode

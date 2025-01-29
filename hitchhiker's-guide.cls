@@ -88,6 +88,12 @@
 \RequirePackage{darkmode} % Darkmode
 
 % ================================
+% Hyperlinks and Cross-References
+% ================================
+\RequirePackage[hidelinks]{hyperref} % Hyperlinks without colored boxes or borders.
+\RequirePackage{cleveref} % Smart referencing (automatically adds 'Section', 'Equation', etc.)
+
+% ================================
 % Custom Commands
 % ================================
 % Label and index a section simultaneously.
