@@ -95,18 +95,18 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
 \section{Distributions}\labelandindex{Distributions}
 \Tree [ .Distribution [ .Distinct\ Objects\\(Permutation) ] [ .Identical\ Objects\\(Combination) ] ]
 \Tree [ .Distribution [ .\text{Any number of objects per box}\\(Repetition) ] [ .\text{At most one obj per box}\\(No\ Repetition) ] ]
-\begin{example}
-    [Finding Roots of an Equation]
+\begin{exampletcb}
+    {Finding Roots of an Equation}{}
     Find the total number of non-negative solutions to \mbox{$x_1+x_2+x_3+x_4+x_5+x_6 = 4$}.
 
     \textbf{Ans:} First, we start by taking random solutions. By trial and error we can see that \mbox{$(1,0,1,1,0,1)$} and \mbox{$(4,0,0,0,0,0)$} are solutions. Now we can see that this is a problem for distributions. We have to distribute 4 `1's into 6 places, and we can have any number of `1's in each box. i.e. identical objects (combination) and any number of objects per box (repetition). So, we use the formula \mbox{$\Comb{n+r-1}{r}$}, with \mbox{$r = 4$} \mbox{$n = 6$}.
     \[
         \Comb{6+4-1}{4} = \Comb{9}{4} \text{ ways.}
     \]
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Scheduling Exams]
+\begin{exampletcb}
+    {Scheduling Exams}{}
     Find the number of ways in which 3 exams can be schedules in 5 days such that \\
     \begin{enumerate}
         \item No two exams are on the same day.
@@ -118,10 +118,12 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
         \item \mbox{$\Perm{5}{3}$}
         \item \mbox{$5^3$}
     \end{enumerate}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Odd Numbers With Distint Digits]
+
+
+\begin{exampletcb}
+    {Odd Numbers With Distint Digits}{}
     How many odd integers exist between 100 and 999 and have distinct digits?
 
     \textbf{Ans:} This is a little trickier to answer. It is not clear as to which category this question belongs to. So we will take the normal route and try to come to an answer. First we list out all the restrictions that we need to adhere to.
@@ -143,10 +145,11 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
          & \boxed{8}\boxed{8}\boxed{5}      \\
          & 8 \times 8 \times 5 \text{ ways}
     \end{align*}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Number of Integers With Distinct Digits]
+
+\begin{exampletcb}
+    {Number of Integers With Distinct Digits}{}
     How many of the first 1000 integers have distinct digits?
 
     \textbf{Ans:} This is a classic example of a multi-case question. In multi-case questions, there will not be any possible generalisation that you can apply to all the objects in question, in this instance, to numbers. So, we consider three cases. One digit, Two digit, and three digit. The specifics of arriving to the answer is left to the reader as an exercise.
@@ -155,10 +158,11 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
         \item Two digits: \mbox{$\boxed{9}\boxed{9}$} ways. \marginnote{Why is it (9,9) and not (9,8)?}
         \item Three digits: \mbox{$\boxed{9}\boxed{9}\boxed{8}$} ways.
     \end{itemize}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Selecting Integers to Sum To a Multiple of 3]
+
+\begin{exampletcb}
+    {Selecting Integers to Sum To a Multiple of 3}{}
     In how many ways can we select 3 integers from \mbox{$3n$} consecutive integers such that their sum is a multiple of 3?
 
     \textbf{Ans:} Admittedly, this is a tricky question. It would be advantageous to first understand what is being asked here. The question takes a set of consecutive integers, from 1 to \mbox{$3n$}, with n being an arbitrary natural number. Then, we have to count the number of subsets, containing three elements, that sum up to a multiple of three. In such cases, we first have to identify any possible simplifications in the question.
@@ -176,10 +180,11 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
     \[
         \underbrace{\Comb{n}{3}}_{3n} +\underbrace{\Comb{n}{3}}_{3n-1} + \underbrace{\Comb{n}{3}}_{3n-2} + \underbrace{\Comb{n}{1}\Comb{n}{1}\Comb{n}{1}}_{\text{one from each}} \text{ways}
     \]
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Permutations of INSTITUTION]
+
+\begin{exampletcb}
+    {Permutations of INSTITUTION}{}
     Find the number of permutations of the word INSTITUTION.
     \begin{itemize}
         \item Find the number of them that begin with I and end with N.
@@ -206,27 +211,29 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
         \left\{\text{All possible permutations}\right\} & - \left\{\text{All possible permutations with TTT}\right\}             \\&= \left\{\text{All possible permutations without TTT}\right\} \\
                                                         & \frac{11!}{3!\times 3!\times 2!} - \frac{9!}{3!\times 2!} \text{ ways}
     \end{align*}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [A New National Flag]
+
+\begin{exampletcb}
+    {A New National Flag}{}
     A new national flag needs to be designed with blue, green, yellow and red. It has 6 strips. In how many ways can we colour the strips such that no two adjacent strips have the same colour?
 
     \textbf{Ans:} This is easy. For the first strip, we can choose one out of 4 colours. For the next strip, we choose one of 3, as one colour is already taken by the previous strip. Similarly, we have 3 choices for the third strip (not 2 choices) and so on.
     \[
         4\times3\times3\times3\times3\times3\text{ ways}
     \]
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Choosing Days of a Week]
+
+\begin{exampletcb}
+    {Choosing Days of a Week}{}
     In how many ways can you choose three days out of a week with repetition allowed?
 
     \textbf{Ans:} \mbox{$n=7,r=3;\quad \Comb{7+3-1}{3} = \Comb{9}{3}\ ways$}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Sum of Permutations]
+\begin{exampletcb}
+    {Sum of Permutations}{}
     Find the sum of all 4 digit numbers that can be obtained by using the digits 1, 2, 3, 4 once in each.
 
     \textbf{Ans:} The answer to this may not be obvious at first. So, we try permuting these numbers. We already know that there will be \mbox{$4!$} permutations, from this set
@@ -251,23 +258,27 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
             \text{Thousands: } & 60 \cdot 1000 = 60000
         \end{rcases} \sum = 66660 \text{ ways}
     \]
-\end{example}
+\end{exampletcb}
 
-\begin{example} \label{ex:preparing_a_qp}
-    [Preparing a Question Paper]
+
+
+\begin{exampletcb}
+    {Preparing a Question Paper}{preparing_a_qp}
     In how many ways can an examiner assign 30 marks to 8 questions such that no question receives less than 2 marks?
 
     \textbf{Ans:} This sounds like a distribution question with extra steps. Firstly, we allot all the minimum marks, i.e. give 2 marks to all questions, leaving us with 14 marks. Now, these marks can be distributed as necessary to the 8 questions. So,
     \[
         \Comb{14+8-1}{14} = \Comb{20}{14} \text{ ways}
     \]
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Transmission Signals]
+
+
+\begin{exampletcb}
+    {Transmission Signals}{}
     A signal consisting of 6 symbols and 12 blank spaces needs to be transmitted. There must be at least two blanks between each symbol. In how many ways can the signal be transmitted?
 
-    \textbf{Ans:} This is similar to example \ref{ex:preparing_a_qp}. Here we can show the signal as
+    \textbf{Ans:} This is similar to \cref{exmp:preparing_a_qp}. Here we can show the signal as
     \[
         \mathbf{S_1}\; G_1 \;\mathbf{S_2}\;G_2\;\mathbf{S_3}\;G_3\;\mathbf{S_4}\;G_4\;\mathbf{S_5}\;G_5\;\mathbf{S_6}\;
     \]
@@ -275,10 +286,11 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
     \[
         \Comb{2+5-1}{2} = \Comb{6}{2}
     \]
-\end{example}
+\end{exampletcb}
 
-\begin{case_study}
-    [Diagonal Division]
+
+\begin{exampletcb}
+    {Diagonal Division}{}
     What are the number of line-segments in the diagonals of a convex decagon?
 
     \textbf{Ans:} This is a really hard problem, and I will do my best to guide you to the answer. But it requires that you pick up a pen and try to solve this problem as we go. We will first find a way to count the number of diagonals that are present in a decagon, then we will move on to counting the number of intersections, and then we will look at how many line segments these intersections create.
@@ -294,99 +306,99 @@ Table \ref{tab:basic_combinations} gives a list of basic combination formulae. T
         \Comb{10}{4} \text{ intersections}
     \]
 
-    \begin{tikzpicture}
-        % Draw the decagon
-        \foreach \i in {1,...,10} {
-                \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
-                \fill[black] (P\i) circle (2pt);
-            }
-        % Highlight two vertices
-        \fill[red] (P1) circle (4pt); % First vertex
-        \fill[blue] (P6) circle (4pt); % Second vertex
-        % Draw the edges
-        \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
-                \draw (P\i) -- (P\j);
-            }
-    \end{tikzpicture}
-    \hfill
-    \begin{tikzpicture}
-        % Draw the decagon
-        \foreach \i in {1,...,10} {
-                \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
-                \fill[black] (P\i) circle (2pt);
-            }
-        % Highlight four vertices
-        \fill[red] (P1) circle (4pt); % First vertex
-        \fill[blue] (P6) circle (4pt); % Second vertex
-        \fill[green] (P3) circle (4pt); % Third vertex
-        \fill[orange] (P8) circle (4pt); % Fourth vertex
-        % Draw the edges
-        \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
-                \draw (P\i) -- (P\j);
-            }
-        % Draw the diagonals
-        \draw[thick, red] (P1) -- (P6); % First diagonal
-    \end{tikzpicture}
-    \hfill
-    \begin{tikzpicture}
-        % Draw the decagon
-        \foreach \i in {1,...,10} {
-                \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
-                \fill[black] (P\i) circle (2pt);
-            }
-        % Highlight four vertices
-        \fill[red] (P1) circle (4pt); % First vertex
-        \fill[blue] (P6) circle (4pt); % Second vertex
-        \fill[green] (P3) circle (4pt); % Third vertex
-        \fill[orange] (P8) circle (4pt); % Fourth vertex
-        % Draw the edges
-        \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
-                \draw (P\i) -- (P\j);
-            }
-        % Draw the diagonals
-        \draw[thick, red] (P1) -- (P6); % First diagonal
-        \draw[thick, green] (P3) -- (P8); % Second diagonal
-        % Highlight the intersection point
-        \coordinate (Intersection) at (intersection of P1--P6 and P3--P8);
-        \fill[purple] (Intersection) circle (4pt); % Intersection point
-    \end{tikzpicture}
-    \hfill
-    \begin{tikzpicture}
-        % Draw the decagon
-        \foreach \i in {1,...,10} {
-                \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
-                \fill[black] (P\i) circle (2pt);
-            }
-        % Highlight four vertices
-        \fill[red] (P1) circle (4pt); % First vertex
-        \fill[blue] (P6) circle (4pt); % Second vertex
-        \fill[green] (P3) circle (4pt); % Third vertex
-        \fill[orange] (P8) circle (4pt); % Fourth vertex
-        % Draw the edges
-        \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
-                \draw (P\i) -- (P\j);
-            }
-        % Calculate the intersection point
-        \coordinate (Intersection) at (intersection of P1--P6 and P3--P8);
-        \fill[purple] (Intersection) circle (4pt); % Intersection point
+\begin{tikzpicture}
+    % Draw the decagon
+    \foreach \i in {1,...,10} {
+            \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
+            \fill[black] (P\i) circle (2pt);
+        }
+    % Highlight two vertices
+    \fill[red] (P1) circle (4pt); % First vertex
+    \fill[blue] (P6) circle (4pt); % Second vertex
+    % Draw the edges
+    \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
+            \draw (P\i) -- (P\j);
+        }
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+    % Draw the decagon
+    \foreach \i in {1,...,10} {
+            \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
+            \fill[black] (P\i) circle (2pt);
+        }
+    % Highlight four vertices
+    \fill[red] (P1) circle (4pt); % First vertex
+    \fill[blue] (P6) circle (4pt); % Second vertex
+    \fill[green] (P3) circle (4pt); % Third vertex
+    \fill[orange] (P8) circle (4pt); % Fourth vertex
+    % Draw the edges
+    \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
+            \draw (P\i) -- (P\j);
+        }
+    % Draw the diagonals
+    \draw[thick, red] (P1) -- (P6); % First diagonal
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+    % Draw the decagon
+    \foreach \i in {1,...,10} {
+            \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
+            \fill[black] (P\i) circle (2pt);
+        }
+    % Highlight four vertices
+    \fill[red] (P1) circle (4pt); % First vertex
+    \fill[blue] (P6) circle (4pt); % Second vertex
+    \fill[green] (P3) circle (4pt); % Third vertex
+    \fill[orange] (P8) circle (4pt); % Fourth vertex
+    % Draw the edges
+    \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
+            \draw (P\i) -- (P\j);
+        }
+    % Draw the diagonals
+    \draw[thick, red] (P1) -- (P6); % First diagonal
+    \draw[thick, green] (P3) -- (P8); % Second diagonal
+    % Highlight the intersection point
+    \coordinate (Intersection) at (intersection of P1--P6 and P3--P8);
+    \fill[purple] (Intersection) circle (4pt); % Intersection point
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+    % Draw the decagon
+    \foreach \i in {1,...,10} {
+            \coordinate (P\i) at ({cos(360/10*\i)}, {sin(360/10*\i)});
+            \fill[black] (P\i) circle (2pt);
+        }
+    % Highlight four vertices
+    \fill[red] (P1) circle (4pt); % First vertex
+    \fill[blue] (P6) circle (4pt); % Second vertex
+    \fill[green] (P3) circle (4pt); % Third vertex
+    \fill[orange] (P8) circle (4pt); % Fourth vertex
+    % Draw the edges
+    \foreach \i [evaluate=\i as \j using {mod(\i,10)+1}] in {1,...,10} {
+            \draw (P\i) -- (P\j);
+        }
+    % Calculate the intersection point
+    \coordinate (Intersection) at (intersection of P1--P6 and P3--P8);
+    \fill[purple] (Intersection) circle (4pt); % Intersection point
 
-        % Draw the segmented diagonals
-        \draw[thick, red] (P1) -- (Intersection); % Red part
-        \draw[thick, blue] (Intersection) -- (P6); % Blue part
-        \draw[thick, green] (P3) -- (Intersection); % Green part
-        \draw[thick, orange] (Intersection) -- (P8); % Orange part
-    \end{tikzpicture}
+    % Draw the segmented diagonals
+    \draw[thick, red] (P1) -- (Intersection); % Red part
+    \draw[thick, blue] (Intersection) -- (P6); % Blue part
+    \draw[thick, green] (P3) -- (Intersection); % Green part
+    \draw[thick, orange] (Intersection) -- (P8); % Orange part
+\end{tikzpicture}
 
-    Once this is done, we can note that of the existing diagonals, each intersection doubles the number of line segements. Illustrated in the figure above, we can see the existence of the green and red diagonals, but, the purple intersection splits them into 4 diagonal line segments, namely green, red, blue and orange.
 
-    \noindent So, the total number of diagonal line segments is
-    \begin{align*}
-        \text{Total number of line segments} =
-        \underbrace{\text{Number of pairs}- 10}_{\substack{\text{Exclude Sides}}} + 2 \times \text{Number of intersections}. \\
-    \end{align*}
-    \therefore\ we get,
-    \begin{equation*}
-        \Comb{10}{2} - 10 + 2 \times \Comb{10}{4} \text{ line segments}
-    \end{equation*}
+Once this is done, we can note that of the existing diagonals, each intersection doubles the number of line segements. Illustrated in the figure above, we can see the existence of the green and red diagonals, but, the purple intersection splits them into 4 diagonal line segments, namely green, red, blue and orange.
 
-\end{case_study}
+So, the total number of diagonal line segments is
+\begin{align*}
+    \text{Total number of line segments} =
+    \underbrace{\text{Number of pairs}- 10}_{\text{Exclude Sides}} + 2 \times \text{Number of intersections}. \\
+\end{align*}
+\mbox{\(\therefore \)} we get,
+\begin{equation*}
+    \Comb{10}{2} - 10 + 2 \times \Comb{10}{4} \text{ line segments}
+\end{equation*}
+\end{exampletcb}

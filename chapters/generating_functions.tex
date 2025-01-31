@@ -26,8 +26,7 @@ Now, to find the coefficient of the \mbox{$r^{th}$} term, we substitute \mbox{$r
     a_r = {\left(\frac{r}{2}\right)}^3
 \]
 
-\begin{example}
-    [Choose one of three]
+\begin{exampletcb}{Choose one of three}{}
     Write the generating function for choosing one of three objects \mbox{$a,b,c$}.
 
     \textbf{Ans:} The generating function can be written as
@@ -42,7 +41,7 @@ Now, to find the coefficient of the \mbox{$r^{th}$} term, we substitute \mbox{$r
     \[
         {(1+x)}^3
     \]
-\end{example}
+\end{exampletcb}
 
 \section{Combination Generating Functions}
 
@@ -77,8 +76,7 @@ And when we use the binomial expansion for negative powers,
 \[
     \Comb{n+0-1}{0}x^0+\Comb{n+1-1}{1}x^1\cdots = \sum_{i=1}^{\infty}\Comb{n+i-1}{i}x^i
 \]
-\begin{example}
-    [Limited Repetition Choosing]
+\begin{exampletcb}{Limited Repetition Choosing}{}
     Out of 3 objects, the first object can be chosen at most once, the second object can be chosen at most twice and the third object can be chosen at most thrice. Find the number of ways of selecting 4 objects which satisfy the above condition.
 
     \textbf{Ans:} We get the following generating function based on the above conditions.
@@ -86,17 +84,16 @@ And when we use the binomial expansion for negative powers,
     \[
         (1+x) \times (1+x+x^2) \times (1+x+x^2+x^3)
     \]
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Repetition, Lower Bound]
+\begin{exampletcb}{Repetition, Lower Bound}{}
     Obtain a generating function to select \mbox{$r$} objects with repetition from five distinct objects with at least two of each type.
 
     \textbf{Ans:} The generating function is
     \[
         {(x^2+x^3\cdots)}^5 = {(x^2)}^5 {(1+x+x^2\cdots)}^5 = x^{10} {(1-x)}^{-5}
     \]
-\end{example}
+\end{exampletcb}
 
 \begin{table}[h]
     \renewcommand{\arraystretch}{1.5}
@@ -122,8 +119,7 @@ And when we use the binomial expansion for negative powers,
 \end{table}
 
 
-\begin{example}
-    [Marbles from a Pile]
+\begin{exampletcb}{Marbles from a Pile}{}
     Using generating functions, find the number of ways to select 10 marbles from a large pile of blue, red and white marbles if
     \begin{enumerate}
         \item Selection has at least two marbles of each colour,
@@ -169,10 +165,9 @@ And when we use the binomial expansion for negative powers,
                   \Comb{11}{10} + \Comb{9}{8} + \Comb{7}{6} +\Comb{5}{4} + \Comb{3}{2} + \Comb{1}{0} = 36 \text{ ways}
               \]
     \end{enumerate}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Examiners' Problem]
+\begin{exampletcb}{Examiners' Problem}{}
     In how many ways can an examiner distribute 30 marks among 8 questions such that all questions get at least 2 marks?
 
     \textbf{Ans:}
@@ -182,9 +177,8 @@ And when we use the binomial expansion for negative powers,
         x^{16}\quad\Comb{8 + r - 1}{r} x^r  \tag*{r = 14,} \\
         \Comb{21}{14} x^{30}
     \end{gather*}
-\end{example}
-\begin{example}
-    [Ice Cream Selection]
+\end{exampletcb}
+\begin{exampletcb}{Ice Cream Selection}{}
     How many ways are there to select 12 ice creams from 5 types of sundaes with at most 4 of each type?
     \textbf{Ans:}
     \begin{gather*}
@@ -195,22 +189,20 @@ And when we use the binomial expansion for negative powers,
         {( - 1)}^r\: \Comb{5}{r} \Comb{5 + r - 1}{r}\: x^{6r} \tag*{r = 2,} \\
         \Comb{5}{2} \Comb{6}{2} x^{12}
     \end{gather*}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Collecting Money from People]
-    Find the number of ways to collect \mathdollar15 from 20 different people if 19 people can give \mathdollar1 or nothing and the last person can give either \mathdollar1 or \mathdollar5 or nothing
+\begin{exampletcb}{Collecting Money from People}{}
+    Find the number of ways to collect \mbox{\(\mathdollar\)}15 from 20 different people if 19 people can give \mbox{\(\mathdollar\)}1 or nothing and the last person can give either \mbox{\(\mathdollar\)}1 or \mbox{\(\mathdollar\)}5 or nothing.
 
     \textbf{Ans:}\begin{gather*}
         {(1 + x)}^{19} {(1 + x + x^5)}\\
         \Comb{19}{r} x^r {(1 + x + x^5)} \tag*{r = 15,14,10}\\
         {(\Comb{19}{15} + \Comb{19}{14} +\Comb{19}{10})} x^{20}
     \end{gather*}
-\end{example}
+\end{exampletcb}
 
 
-\begin{example}
-    [Distributing Oranges]
+\begin{exampletcb}{Distributing Oranges}{}
     While Shopping on saturday, Mary bought 12 oranges for her children, Grace, George and Frank. In how many ways can she distribute the oranges so that Grace gets at least 4, George and Frank get at least 2 and Frank gets no more than 5.
 
     \textbf{Ans:}
@@ -221,10 +213,11 @@ And when we use the binomial expansion for negative powers,
         x^8 \quad \Comb{3 + r - 1}{r} x^r (1 - x^4) \tag*{r = 4,0}\\
         \Comb{6}{4} - 1
     \end{gather*}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Partial Restriction]
+
+
+\begin{exampletcb}{Partial Restriction}{}
     Find the number of ways to distribute 25 identical balls into 7 distinct boxex if the first box can have not more than 10 balls, but the other boxes have no restriction.
 
     \textbf{Ans:}
@@ -235,7 +228,7 @@ And when we use the binomial expansion for negative powers,
         {(1 - x^{11})} \Comb{6 + r - 1}{r} x^r \tag*{r = 25,14} \\
         \left(\Comb{30}{25} - \Comb{19}{14} \right) x^{25}
     \end{gather*}
-\end{example}
+\end{exampletcb}
 
 \section{Permutation Genetating Functions}
 \subsection{Permutation Without Repetition}
@@ -261,8 +254,7 @@ And the series encoding this sequence,
     \sum_{r = 0}^{\infty} n^r \frac{x^r}{r!} = e^{nx}
 \end{gather*}
 
-\begin{example}
-    [ENGINE Permutation]
+\begin{exampletcb}{ENGINE Permutation}{}
     Find the number of arrangements of 4 letters from the word ENGINE
 
     \textbf{Ans:} We can note that the letters N and E are repeating twice, while G and I are repeating once each. So,
@@ -272,10 +264,9 @@ And the series encoding this sequence,
         24 \times \left(1 +\frac{1}{4} + 1 + 2\right) \frac{x^4}{4!}\\
         102 \text{ ways}
     \end{gather*}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Distributing Toys]
+\begin{exampletcb}{Distributing Toys}{}
     How many ways are there to distribute 8 toys among 4 children if the first child should get at least 2?
 
     \textbf{Ans:} \begin{gather*}
@@ -285,10 +276,9 @@ And the series encoding this sequence,
         ( 4^r - 3^r - r3^{r - 1} )\frac{x^r}{r!} \tag*{r = 8} \\
         4^8 - 3^8 - 8 \times 3^7
     \end{gather*}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Ternery Sequence]
+\begin{exampletcb}{Ternery Sequence}{}
     How many 4 digit ternery sequences are there with at least one 0, one 1, one 2.
 
     \textbf{Ans:} A ternery sequence is a sequence comprising of a three letter alphabet.
@@ -299,10 +289,9 @@ And the series encoding this sequence,
         3^r \frac{x^r}{r!} - 3 \times 2^r \frac{x^r}{r!} + 3 \times \frac{x^r}{r!} - 1 \tag*{r = 4}\\
         3^4 - 3 \times 2^4 + 3 \text{ ways}
     \end{gather*}
-\end{example}
+\end{exampletcb}
 
-\begin{example}
-    [Ship Singal Permutation]
+\begin{exampletcb}{Ship Singal Permutation}{}
     A ship carries 48 flags, 12 each of the colour white, red, black and blue. 12 of these flags are placed on a vertical pole, in order to communicate a signals to other ships. How many of these signals use\begin{enumerate}
         \item an even number of blue flags and an odd number of black flags.
         \item at least three white flags or no white flags at all.
@@ -325,4 +314,8 @@ And the series encoding this sequence,
                   \left( 4^{12} - 3^{12} \cdot 12 - 3^{12} \cdot 12 \cdot 11  \right) \frac{x^{12}}{12!} 
               \end{gather*}
     \end{enumerate}
-\end{example}
+\end{exampletcb}
+
+
+
+
