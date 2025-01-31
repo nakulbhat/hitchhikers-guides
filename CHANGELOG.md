@@ -19,6 +19,12 @@ Security - in case of vulnerabilities. -->
 <!-- write changelog -->
 <!-- Commit all changes -->
 
+## v3.0.0
+Added - tcolorbox and defined environments
+Added - cref formats for custom environments
+Changed - Updation script
+Added - Versioning
+
 ## v2.0.1
 Added - cleverref, hyperref
 Changed - Hide links

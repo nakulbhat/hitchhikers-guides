@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hitchhiker's-guide}
+\ProvidesClass{hitchhikers-guide}[v3.0.0]
 
 % ================================
 % Base Class
@@ -16,20 +16,22 @@
 % Page Layout and Margins
 % ================================
 \RequirePackage[a4paper,
-    inner=0.6in,
-    outer=1.8in,
-    top=1in,
-    bottom=1in,
-    bindingoffset=0.75in,
-    marginparwidth=1.4in,
-    marginparsep=0.2in]{geometry}
+inner=0.6in,
+outer=1.8in,
+top=1in,
+bottom=1in,
+bindingoffset=0.75in,
+marginparwidth=1.4in,
+marginparsep=0.2in]{geometry}
 
 % ================================
-% Paragraph Formatting
+% Paragraph Formattingopacityback=0
 % ================================
 \RequirePackage{ragged2e} % Left-align text (ragged-right).
 \RaggedRight % Enforce ragged-right alignment globally.
-\hfuzz=5pt % Avoid underfull/overfull hbox warnings.
+\hfuzz=15pt % Avoid underfull/overfull hbox warnings.
+\hbadness=99999
+\vbadness=99999
 \RequirePackage{enumitem} % Customization of lists.
 \RequirePackage[skip=0.2in, indent=0in]{parskip} % Paragraph spacing.
 
@@ -79,30 +81,24 @@
 \RequirePackage{tabularx} % Automatic width adjustment for tables.
 \RequirePackage{booktabs} % Professional-quality tables.
 \RequirePackage{array} % Extended table formatting.
-\RequirePackage{longtable}  % Tables that span multiple pages
-\RequirePackage{colortbl}   % Add colors to tables
+\RequirePackage{longtable} % Tables that span multiple pages
+\RequirePackage{colortbl} % Add colors to tables
 
 % ================================
 % Looks
 % ================================
-\RequirePackage{darkmode} % Darkmode
-
-% ================================
-% Hyperlinks and Cross-References
-% ================================
-\RequirePackage[hidelinks]{hyperref} % Hyperlinks without colored boxes or borders.
-\RequirePackage{cleveref} % Smart referencing (automatically adds 'Section', 'Equation', etc.)
+\RequirePackage[enable]{darkmode} % Darkmode
 
 % ================================
 % Custom Commands
 % ================================
 % Label and index a section simultaneously.
 \NewDocumentCommand{\labelandindex}{m o}{%
-  \IfValueTF{#2}{%
-    \label{#2} \index{#1}%
-  }{%
-    \label{#1} \index{#1}%
-  }%
+\IfValueTF{#2}{%
+\label{#2} \index{#1}%
+}{%
+\label{#1} \index{#1}%
+}%
 }
 
 % Define the title of the guide.
@@ -127,8 +123,8 @@
 % Abstract Environment
 % ================================
 \newenvironment{abstract}
-    {\section*{Abstract}\itshape}
-    {\par}
+{\section*{Abstract}\itshape}
+{\par}
 
 % ================================
 % Code Listings
@@ -137,44 +133,119 @@
 \definecolor{lightgray}{rgb}{0.9, 0.9, 0.9} % Light gray background for code.
 \RequirePackage{minted} % Syntax-highlighted code listings.
 \setminted{
-    bgcolor=lightgray,
-    fontsize=\small,
-    frame=single,
-    linenos=true,
-    numbersep=5pt,
-    breaklines=true,
-    mathescape=true,
-    texcl=true
+bgcolor=lightgray,
+fontsize=\small,
+frame=single,
+linenos=true,
+numbersep=5pt,
+breaklines=true,
+mathescape=true,
+texcl=true
 }
 
 % ================================
 % Custom Theorem Style
 % ================================
+\RequirePackage[most]{tcolorbox}
+\IfDarkModeTF
+{% true
+\newtcbtheorem[auto counter,number within=chapter]{exampletcb}{Example}{
+standard jigsaw, breakable,
+coltitle=white,
+coltext=white,
+colframe = blue!50!black,
+fonttitle=\small\bfseries,
+description font=\normalfont,
+opacityback=0
+}{exmp}
 
-\newtheoremstyle{customstyle} % Unified style for theorems and environments.
-{10pt}   % Space above.
-{10pt}   % Space below.
-{\normalfont} % Body font.
-{}        % Indentation.
-{\bfseries} % Theorem head font.
-{:}       % Punctuation after theorem head.
-{.5em}    % Space after theorem head.
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % Custom theorem head spec.
+\newtcbtheorem[auto counter,number within=chapter]{theoremtcb}{Theorem}{
+standard jigsaw, breakable,
+coltitle=white,
+coltext=white,
+colframe = violet!90!black,
+fonttitle=\small\bfseries,
+description font=\normalfont,
+opacityback=0
+}{thm}
 
-% Apply the custom theorem style.
-\theoremstyle{customstyle}
+\newtcbtheorem[auto counter,number within=chapter]{definitiontcb}{Definition}{
+standard jigsaw, breakable,
+coltitle=black,
+coltext=white,
+colframe = yellow!70!black,
+fonttitle=\small\bfseries,
+description font=\normalfont,
+opacityback=0
+}{defn}
+
+\newtcbtheorem[auto counter,number within=chapter]{algorithmtcb}{Algorithm}{
+standard jigsaw, breakable,
+coltitle=white,
+coltext=white,
+colframe=green!50!black, % Change to a standard color for debugging
+fonttitle=\small\bfseries,
+description font=\normalfont,
+opacityback=0
+}{algx}
+}{% false
+
+\newtcbtheorem[auto counter,number within=chapter]{exampletcb}{Example}{
+standard jigsaw, breakable,
+coltitle=black,
+coltext=black,
+colframe = blue!50!black,
+fonttitle=\small\bfseries,
+description font=\normalfont,
+opacityback=0
+}{exmp}
+
+\newtcbtheorem[auto counter,number within=chapter]{theoremtcb}{Theorem}{
+standard jigsaw, breakable,
+coltitle=black,
+coltext=black,
+colframe = purple!50!black,
+fonttitle=\small\bfseries,
+description font=\normalfont,
+opacityback=0
+}{thm}
+
+\newtcbtheorem[auto counter,number within=chapter]{definitiontcb}{Definition}{
+standard jigsaw, breakable,
+coltitle=black,
+coltext=black,
+colframe = red!40!black,
+fonttitle=\small\bfseries,
+description font=\normalfont,
+opacityback=0
+}{defn}
+
+\newtcbtheorem[auto counter,number within=chapter]{algorithmtcb}{Algorithm}{
+standard jigsaw, breakable,
+coltitle=black,
+coltext=black,
+colframe = orange!50!black,
+fonttitle=\small\bfseries,
+description font=\normalfont,
+opacityback=0
+}{algo}
+}
 
 % ================================
-% Custom Environments
+% Hyperlinks and Cross-References
 % ================================
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{intuition}[theorem]{Intuition}
-\newtheorem{wormhole}[theorem]{Wormhole}
-\newtheorem{fallacy}[theorem]{Fallacy}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{case_study}[theorem]{Case Study}
+\RequirePackage[hidelinks]{hyperref} % Hyperlinks without colored boxes or borders.
+\RequirePackage{cleveref} % Smart referencing (automatically adds 'Section', 'Equation', etc.)
 
+% Define reference names for tcolorbox environments
+\crefname{tcb@cnt@exampletcb}{example}{examples}
+\Crefname{tcb@cnt@exampletcb}{Example}{Examples}
+
+\crefname{tcb@cnt@theoremtcb}{theorem}{theorems}
+\Crefname{tcb@cnt@theoremtcb}{Theorem}{Theorems}
+
+\crefname{tcb@cnt@algorithmtcb}{algorithm}{algorithms}
+\Crefname{tcb@cnt@algorithmtcb}{Algorithm}{Algorithms}
+
+\crefname{tcb@cnt@definitiontcb}{definition}{definitions}
+\Crefname{tcb@cnt@definitiontcb}{Definition}{Definitions}

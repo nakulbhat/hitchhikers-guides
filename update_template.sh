@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Check if the required files exist in the template branch
+# Define the template branch and required files
 template_branch="general/template"
-template_files=("hitchhiker's-guide.cls" "hitchhiker's-guide.sty")
+template_files=("hitchhikers-guide.cls")
 
 # Checkout the template files from the template branch into the current branch
 echo "Checking out template files from $template_branch..."
@@ -13,23 +13,24 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "Template files checked out successfully."
+echo "Template file checked out successfully."
 
-# Extract version number from the .cls file
-version_line=$(grep '\\ProvidesClass' "${template_files[0]}")
-if [[ $version_line =~ v([0-9]+\.[0-9]+\.[0-9]+) ]]; then
-    version_number="v${BASH_REMATCH[1]}"
-    echo "Extracted version number: $version_number"
-else
-    echo "Error: Failed to extract version number from ${template_files[0]}."
+# Extract version number from CHANGELOG.md
+changelog_file="CHANGELOG.md"
+version_number=$(grep -oP '^## \Kv[0-9]+\.[0-9]+\.[0-9]+' "$changelog_file" | head -n 1)
+
+if [ -z "$version_number" ]; then
+    echo "Error: Failed to extract version number from $changelog_file."
     exit 1
 fi
 
+echo "Extracted version number: $version_number"
+
 # Stage the template files
-echo "Staging template files..."
+echo "Staging template file..."
 git add "${template_files[@]}"
 if [ $? -ne 0 ]; then
-    echo "Error: Failed to stage template files."
+    echo "Error: Failed to stage template file."
     exit 1
 fi
 
@@ -42,4 +43,4 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "Commit successful. Template files updated to $version_number."
+echo "Commit successful. Template file updated to $version_number."
