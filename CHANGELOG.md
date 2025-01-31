@@ -19,6 +19,12 @@ Security - in case of vulnerabilities. -->
 <!-- write changelog -->
 <!-- Commit all changes -->
 
+## v3.1.0
+Changed - Page Margins
+Added - bookmark package
+Changed - Colours for light mode
+Added - Class option for dark mode
+
 ## v3.0.0
 Added - tcolorbox and defined environments
 Added - cref formats for custom environments
