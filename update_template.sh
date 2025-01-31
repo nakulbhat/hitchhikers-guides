@@ -2,7 +2,7 @@
 
 # Check if the required files exist in the template branch
 template_branch="general/template"
-template_files=("hitchhiker's-guide.cls" "hitchhiker's-guide.sty")
+template_files=("hitchhikers-guide.cls")
 
 # Checkout the template files from the template branch into the current branch
 echo "Checking out template files from $template_branch..."
