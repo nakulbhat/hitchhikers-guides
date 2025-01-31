@@ -1,5 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hitchhikers-guide}[v3.0.0]
+\ProvidesClass{hitchhikers-guide}[v3.1.0]
+
+% ================================
+% Class Options
+% ================================
+\newif\ifdarkmode % Define a boolean flag
+
+\DeclareOption{dark}{\darkmodetrue}   % If "dark" is chosen, enable dark mode
+\DeclareOption{light}{\darkmodefalse} % If "light" is chosen, disable dark mode
+
+\ExecuteOptions{light} % Default option
+\ProcessOptions\relax % Process the options
 
 % ================================
 % Base Class
@@ -21,8 +32,8 @@ outer=1.8in,
 top=1in,
 bottom=1in,
 bindingoffset=0.75in,
-marginparwidth=1.4in,
-marginparsep=0.2in]{geometry}
+marginparwidth=1in,
+marginparsep=0.25in]{geometry}
 
 % ================================
 % Paragraph Formattingopacityback=0
@@ -30,6 +41,7 @@ marginparsep=0.2in]{geometry}
 \RequirePackage{ragged2e} % Left-align text (ragged-right).
 \RaggedRight % Enforce ragged-right alignment globally.
 \hfuzz=15pt % Avoid underfull/overfull hbox warnings.
+\vfuzz=15pt % Avoid underfull/overfull vbox warnings.
 \hbadness=99999
 \vbadness=99999
 \RequirePackage{enumitem} % Customization of lists.
@@ -84,10 +96,15 @@ marginparsep=0.2in]{geometry}
 \RequirePackage{longtable} % Tables that span multiple pages
 \RequirePackage{colortbl} % Add colors to tables
 
+
 % ================================
 % Looks
 % ================================
-\RequirePackage[enable]{darkmode} % Darkmode
+\ifdarkmode
+  \RequirePackage[enable]{darkmode} % Enable dark mode
+\else
+  \RequirePackage{darkmode} % Load without enabling
+\fi
 
 % ================================
 % Custom Commands
@@ -171,9 +188,9 @@ opacityback=0
 
 \newtcbtheorem[auto counter,number within=chapter]{definitiontcb}{Definition}{
 standard jigsaw, breakable,
-coltitle=black,
+coltitle=white,
 coltext=white,
-colframe = yellow!70!black,
+colframe = yellow!60!black,
 fonttitle=\small\bfseries,
 description font=\normalfont,
 opacityback=0
@@ -194,7 +211,7 @@ opacityback=0
 standard jigsaw, breakable,
 coltitle=black,
 coltext=black,
-colframe = blue!50!black,
+colframe = blue!50!white,
 fonttitle=\small\bfseries,
 description font=\normalfont,
 opacityback=0
@@ -204,7 +221,7 @@ opacityback=0
 standard jigsaw, breakable,
 coltitle=black,
 coltext=black,
-colframe = purple!50!black,
+colframe = violet!60!white,
 fonttitle=\small\bfseries,
 description font=\normalfont,
 opacityback=0
@@ -214,7 +231,7 @@ opacityback=0
 standard jigsaw, breakable,
 coltitle=black,
 coltext=black,
-colframe = red!40!black,
+colframe = yellow!90!gray,
 fonttitle=\small\bfseries,
 description font=\normalfont,
 opacityback=0
@@ -224,7 +241,7 @@ opacityback=0
 standard jigsaw, breakable,
 coltitle=black,
 coltext=black,
-colframe = orange!50!black,
+colframe = green!90!black,
 fonttitle=\small\bfseries,
 description font=\normalfont,
 opacityback=0
@@ -236,6 +253,7 @@ opacityback=0
 % ================================
 \RequirePackage[hidelinks]{hyperref} % Hyperlinks without colored boxes or borders.
 \RequirePackage{cleveref} % Smart referencing (automatically adds 'Section', 'Equation', etc.)
+\RequirePackage{bookmark}
 
 % Define reference names for tcolorbox environments
 \crefname{tcb@cnt@exampletcb}{example}{examples}
