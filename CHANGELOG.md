@@ -19,6 +19,11 @@ Security - in case of vulnerabilities. -->
 <!-- write changelog -->
 <!-- Commit all changes -->
 
+## v3.2.0
+Added - packaged: algorithm, algpseudocode
+Changed - enabled \raggedbottom
+Changed - Template Updation Script
+
 ## v3.1.0
 Changed - Page Margins
 Added - bookmark package
