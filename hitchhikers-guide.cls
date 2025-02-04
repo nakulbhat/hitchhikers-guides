@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hitchhikers-guide}[v3.1.0]
+\ProvidesClass{hitchhikers-guide}[v3.2.0]
 
 % ================================
 % Class Options
@@ -40,6 +40,7 @@ marginparsep=0.25in]{geometry}
 % ================================
 \RequirePackage{ragged2e} % Left-align text (ragged-right).
 \RaggedRight % Enforce ragged-right alignment globally.
+\raggedbottom
 \hfuzz=15pt % Avoid underfull/overfull hbox warnings.
 \vfuzz=15pt % Avoid underfull/overfull vbox warnings.
 \hbadness=99999
@@ -76,6 +77,12 @@ marginparsep=0.25in]{geometry}
 % Graphics and Figures
 % ================================
 \RequirePackage{tikz} % Drawing and illustrations.
+
+% ================================
+% Algorithms
+% ================================
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
 % ================================
 % Trees
@@ -267,3 +274,4 @@ opacityback=0
 
 \crefname{tcb@cnt@definitiontcb}{definition}{definitions}
 \Crefname{tcb@cnt@definitiontcb}{Definition}{Definitions}
+
