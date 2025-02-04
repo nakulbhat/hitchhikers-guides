@@ -18,6 +18,8 @@ Security - in case of vulnerabilities. -->
 <!-- Update version number in main -->
 <!-- write changelog -->
 <!-- Commit all changes -->
+## v2.0.0
+Added - Chapter: Fundamentals of Algorithmic Efficiency
 
 ## v1.0.0
 Added - Syllabus
