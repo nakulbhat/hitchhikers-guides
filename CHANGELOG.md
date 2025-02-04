@@ -18,6 +18,10 @@ Security - in case of vulnerabilities. -->
 <!-- Update version number in main -->
 <!-- write changelog -->
 <!-- Commit all changes -->
+
+## v3.0.0
+Added - Chapter: Brute Force Techniques
+
 ## v2.0.0
 Added - Chapter: Fundamentals of Algorithmic Efficiency
 
