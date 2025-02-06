@@ -1,0 +1,64 @@
+\chapter{Intermediate and Advanced SQL}
+
+\section{Joins}
+
+Joins allow combining data from multiple tables.
+
+\begin{minted}{sql}
+SELECT students.id, students.name, courses.course_name 
+FROM students 
+JOIN enrollments ON students.id = enrollments.student_id 
+JOIN courses ON enrollments.course_id = courses.id;
+\end{minted}
+
+\begin{exampletcb}{Using Joins}{ex:joins}
+Retrieves student names and their enrolled courses by joining tables.
+\end{exampletcb}
+
+\section{Subqueries}
+
+Subqueries allow nesting one query inside another.
+
+\begin{minted}{sql}
+SELECT name FROM students WHERE id IN (SELECT student_id FROM enrollments);
+\end{minted}
+
+\begin{exampletcb}{Using Subqueries}{ex:subqueries}
+Retrieves names of students who are enrolled in at least one course.
+\end{exampletcb}
+
+\section{Views}
+
+Views are virtual tables based on SQL queries.
+
+\begin{minted}{sql}
+CREATE VIEW student_courses AS 
+SELECT students.name, courses.course_name 
+FROM students 
+JOIN enrollments ON students.id = enrollments.student_id 
+JOIN courses ON enrollments.course_id = courses.id;
+\end{minted}
+
+\begin{exampletcb}{Creating a View}{ex:view}
+Creates a view `student\_courses' that stores student names and their enrolled courses.
+\end{exampletcb}
+
+\section{Stored Procedures}
+
+Stored procedures allow defining reusable SQL code blocks.
+
+\begin{minted}{sql}
+DELIMITER //
+CREATE PROCEDURE GetStudentCourses(IN student_id INT)
+BEGIN
+    SELECT courses.course_name 
+    FROM enrollments 
+    JOIN courses ON enrollments.course_id = courses.id 
+    WHERE enrollments.student_id = student_id;
+END //
+DELIMITER ;
+\end{minted}
+
+\begin{exampletcb}{Creating a Stored Procedure}{ex:stored-procedure}
+Defines a procedure `GetStudentCourses' that retrieves all courses of a student.
+\end{exampletcb}

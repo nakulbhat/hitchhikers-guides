@@ -1,0 +1,91 @@
+\chapter{Basic SQL}
+
+SQL (Structured Query Language) is used to interact with relational databases. It helps in retrieving, inserting, updating, and deleting data.
+
+\section{Basic SQL Commands}
+
+\begin{definitiontcb}{SQL}{def:sql}
+SQL is a language for managing relational databases.
+\end{definitiontcb}
+
+\section{Creating a Database and Table}
+
+To create a database and a table:
+
+\begin{minted}{sql}
+CREATE DATABASE mydatabase;
+
+USE mydatabase;
+
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT
+);
+\end{minted}
+
+\begin{exampletcb}{Creating a Students Table}{ex:students-table}
+Creates `mydatabase' and `students' table with `id', `name', and `age' columns.
+\end{exampletcb}
+
+\section{Inserting Data}
+
+To insert data into a table:
+
+\begin{minted}{sql}
+INSERT INTO students (id, name, age) VALUES (1, 'Alice', 22);
+INSERT INTO students (id, name, age) VALUES (2, 'Bob', 24);
+\end{minted}
+
+\begin{exampletcb}{Inserting Data}{ex:insert-data}
+Adds two student records into the `students' table.
+\end{exampletcb}
+
+\section{Retrieving Data}
+
+To retrieve data from a table:
+
+\begin{minted}{sql}
+SELECT * FROM students;
+SELECT name, age FROM students WHERE age > 22;
+\end{minted}
+
+\begin{exampletcb}{Retrieving Data}{ex:select-data}
+Retrieves all records from `students' and selects names and ages of students older than 22.
+\end{exampletcb}
+
+\section{Updating Data}
+
+To update records in a table:
+
+\begin{minted}{sql}
+UPDATE students SET age = 23 WHERE id = 1;
+\end{minted}
+
+\begin{exampletcb}{Updating Data}{ex:update-data}
+Updates Alice's age to 23.
+\end{exampletcb}
+
+\section{Deleting Data}
+
+To delete records from a table:
+
+\begin{minted}{sql}
+DELETE FROM students WHERE id = 2;
+\end{minted}
+
+\begin{exampletcb}{Deleting Data}{ex:delete-data}
+Removes Bob's record from the `students' table.
+\end{exampletcb}
+
+\section{Filtering and Sorting}
+
+To filter and sort data:
+
+\begin{minted}{sql}
+SELECT * FROM students WHERE age > 20 ORDER BY name ASC;
+\end{minted}
+
+\begin{exampletcb}{Filtering and Sorting}{ex:filter-sort}
+Retrieves students older than 20 and sorts them alphabetically by name.
+\end{exampletcb}
