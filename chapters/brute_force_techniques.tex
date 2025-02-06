@@ -3,16 +3,16 @@
 \begin{algorithmtcb}
     {Selection Sort}{selection_sort}
     \begin{algorithmic}
-        \State Given an array $A$ of length $n$
+        \State{} Given an array $A$ of length $n$
         \For{$i = 0$ to $n - 2$}
-            \State Let $minIndex = i$
-            \For{$j = i + 1$ to $n - 1$}
+            \State{} Let $minIndex = i$
+            \For{$j = i$ to $n - 1$}
                 \If{$A[j] < A[minIndex]$}
-                    \State $minIndex = j$
-                \EndIf
-            \EndFor
-            \State Swap $A[i]$ and $A[minIndex]$
-        \EndFor 
+                    \State{} $minIndex = j$
+                \EndIf{}
+            \EndFor{}
+            \State{} Swap $A[i]$ and $A[minIndex]$
+        \EndFor{} 
     \end{algorithmic}
 \end{algorithmtcb}
 
@@ -39,14 +39,14 @@
 \begin{algorithmtcb}
     {Bubble Sort}{bubble_sort}
     \begin{algorithmic}
-        \State Given an array $A$ of length $n$
+        \State{} Given an array $A$ of length $n$
         \For{$i = 0$ to $n - 2$}
             \For{$j = 0$ to $n - i - 2$}
                 \If{$A[j] > A[j+1]$}
-                    \State Swap $A[j]$ and $A[j+1]$
-                \EndIf
-            \EndFor
-        \EndFor
+                    \State{} Swap $A[j]$ and $A[j+1]$
+                \EndIf{}
+            \EndFor{}
+        \EndFor{}
     \end{algorithmic}
 \end{algorithmtcb}
 
@@ -71,13 +71,13 @@
 \begin{algorithmtcb}
     {Sequential Search}{sequential_search}
     \begin{algorithmic}
-        \State Given an array $A$ of length $n$ and target value $x$
+        \State{} Given an array $A$ of length $n$ and target value $x$
         \For{$i = 0$ to $n - 1$}
             \If{$A[i] == x$}
-                \State Return $i$ (index of $x$)
-            \EndIf
-        \EndFor
-        \State Return $-1$ (not found)
+                \State{} Return $i$ (index of $x$)
+            \EndIf{}
+        \EndFor{}
+        \State{} Return $-1$ (not found)
     \end{algorithmic}
 \end{algorithmtcb}
 
@@ -100,17 +100,17 @@
 \begin{algorithmtcb}
     {Brute Force String Matching}{brute_force_matching}
     \begin{algorithmic}
-        \State Given text $T$ of length $n$ and pattern $P$ of length $m$
+        \State{} Given text $T$ of length $n$ and pattern $P$ of length $m$
         \For{$i = 0$ to $n - 1$}  \Comment{Move one character at a time}
-            \State Initialize $j = 0$
+            \State{} Initialize $j = 0$
             \While{$j < m$ and $T[i + j] == P[j]$}
-                \State Increment $j$
-            \EndWhile
+                \State{} Increment $j$
+            \EndWhile{}
             \If{$j == m$}
-                \State Return index $i$ (pattern found)
-            \EndIf
-        \EndFor
-        \State Return $-1$ (pattern not found)
+                \State{} Return index $i$ (pattern found)
+            \EndIf{}
+        \EndFor{}
+        \State{} Return $-1$ (pattern not found)
     \end{algorithmic}
 \end{algorithmtcb}
 
@@ -138,17 +138,17 @@
 \begin{algorithmtcb}
     {Exhaustive Search}{exhaustive_search}
     \begin{algorithmic}
-        \State Given an array $A$ of length $n$
-        \State Initialize $min = A[0]$, $max = A[0]$
+        \State{} Given an array $A$ of length $n$
+        \State{} Initialize $min = A[0]$, $max = A[0]$
         \For{$i = 1$ to $n - 1$}
             \If{$A[i] < min$}
-                \State $min = A[i]$
-            \EndIf
+                \State{} $min = A[i]$
+            \EndIf{}
             \If{$A[i] > max$}
-                \State $max = A[i]$
-            \EndIf
-        \EndFor
-        \State Return $min, max$
+                \State{} $max = A[i]$
+            \EndIf{}
+        \EndFor{}
+        \State{} Return $min, max$
     \end{algorithmic}
 \end{algorithmtcb}
 
@@ -172,15 +172,15 @@
 \begin{algorithmtcb}
     {Depth-First Search}{dfs}
     \begin{algorithmic}
-        \State Given a graph $G = (V, E)$ and starting node $s$
-        \State Initialize stack with $s$, mark $s$ as visited
+        \State{} Given a graph $G = (V, E)$ and starting node $s$
+        \State{} Initialize stack with $s$, mark $s$ as visited
         \While{stack is not empty}
-            \State Pop node $v$ from stack
+            \State{} Pop node $v$ from stack
             \For{each unvisited neighbor $w$ of $v$}
-                \State Mark $w$ as visited
-                \State Push $w$ onto stack
-            \EndFor
-        \EndWhile
+                \State{} Mark $w$ as visited
+                \State{} Push $w$ onto stack
+            \EndFor{}
+        \EndWhile{}
     \end{algorithmic}
 \end{algorithmtcb}
 
@@ -213,15 +213,15 @@
 \begin{algorithmtcb}
     {Breadth-First Search}{bfs}
     \begin{algorithmic}
-        \State Given a graph $G = (V, E)$ and starting node $s$
-        \State Initialize queue with $s$, mark $s$ as visited
+        \State{} Given a graph $G = (V, E)$ and starting node $s$
+        \State{} Initialize queue with $s$, mark $s$ as visited
         \While{queue is not empty}
-            \State Dequeue node $v$ from queue
+            \State{} Dequeue node $v$ from queue
             \For{each unvisited neighbor $w$ of $v$}
-                \State Mark $w$ as visited
-                \State Enqueue $w$
-            \EndFor
-        \EndWhile
+                \State{} Mark $w$ as visited
+                \State{} Enqueue $w$
+            \EndFor{}
+        \EndWhile{}
     \end{algorithmic}
 \end{algorithmtcb}
 

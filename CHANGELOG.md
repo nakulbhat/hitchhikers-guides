@@ -19,6 +19,9 @@ Security - in case of vulnerabilities. -->
 <!-- write changelog -->
 <!-- Commit all changes -->
 
+## v3.0.1
+Changed - Corrections and Linting 
+
 ## v3.0.0
 Added - Chapter: Brute Force Techniques
 
